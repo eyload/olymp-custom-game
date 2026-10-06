@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<title>OLYMP CUSTOM GAME</title>
+<title>PartyFinder</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
 :root{--bg:#070b14;--card:#0f1626;--line:#222e47;--gold:#e6b95a;--blue:#38bdf8;--mut:#8a94a8;
@@ -105,7 +105,7 @@ function render() {
         <em>${p ? (mine ? 'Ты' : 'Занято') : 'Занять'}</em></button>`;
     }).join('') + '</section>';
   $('#app').innerHTML = `
-    <div class="eye">MOBILE LEGENDS</div><h1>OLYMP CUSTOM BOT</h1><div class="mut">Собираем команду 5 × 5</div>
+    <div class="eye">MOBILE LEGENDS</div><h1>PARTYFINDER</h1><div class="mut">Собираем команду 5 × 5</div>
     <div class="card stat ${full ? 'done' : ''}"><b>${full ? 'Команда собрана!' : count + ' / 10 игроков'}</b>
       ${full ? `<small> 10 / 10 игроков</small>` : ''}<div class="bar"><i style="width:${count * 10}%"></i></div></div>
     <div class="card"><div class="eye">СТАРТ ИГРЫ</div><h2>${S.startsAt ? fmt(S.startsAt) : 'Время пока не назначено'}</h2>

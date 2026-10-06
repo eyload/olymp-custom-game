@@ -105,7 +105,7 @@ function render() {
         <em>${p ? (mine ? 'Ты' : 'Занято') : 'Занять'}</em></button>`;
     }).join('') + '</section>';
   $('#app').innerHTML = `
-    <div class="eye">MOBILE LEGENDS</div><h1>OLYMP CUSTOM GAME</h1><div class="mut">Собираем команду 5 × 5</div>
+    <div class="eye">MOBILE LEGENDS</div><h1>OLYMP CUSTOM BOT</h1><div class="mut">Собираем команду 5 × 5</div>
     <div class="card stat ${full ? 'done' : ''}"><b>${full ? 'Команда собрана!' : count + ' / 10 игроков'}</b>
       ${full ? `<small> 10 / 10 игроков</small>` : ''}<div class="bar"><i style="width:${count * 10}%"></i></div></div>
     <div class="card"><div class="eye">СТАРТ ИГРЫ</div><h2>${S.startsAt ? fmt(S.startsAt) : 'Время пока не назначено'}</h2>

@@ -10,6 +10,9 @@ const pool = new pg.Pool({
   ssl: /localhost|127\.0\.0\.1/.test(DATABASE_URL) ? false : { rejectUnauthorized: false },
 });
 const LOBBY = 1;
+const APP_URL = process.env.APP_URL;
+const ADMINS = (process.env.ADMINS || '').toLowerCase().split(',').map((x) => x.trim().replace(/^@/, '')).filter(Boolean);
+const isAdmin = (tg) => ADMINS.includes(String(tg.id)) || (!!tg.username && ADMINS.includes(tg.username.toLowerCase()));
 const ROLES = ['jungle', 'exp', 'mid', 'gold', 'roam'];
 
 // Schema. The two UNIQUE constraints are what make role locking race-proof.
@@ -24,6 +27,9 @@ await pool.query(`
     status text not null default 'open',
     created_at timestamptz not null default now());
   insert into lobbies (id) values (${LOBBY}) on conflict do nothing;
+  alter table lobbies add column if not exists starts_at timestamptz,
+    add column if not exists notified20 boolean not null default false,
+    add column if not exists notified10 boolean not null default false;
   create table if not exists role_assignments (
     id serial primary key,
     lobby_id int not null references lobbies(id),
@@ -57,19 +63,21 @@ function auth(req, res, next) {
 const wrap = (fn) => (req, res) =>
   fn(req, res).catch((e) => { console.error(e); res.status(500).json({ error: 'db' }); });
 
-async function state(uid) {
+async function state(tg) {
+  const uid = tg.id;
   const { rows } = await pool.query(
     'select telegram_user_id::text as uid, telegram_username as username, team, role from role_assignments where lobby_id = $1',
     [LOBBY]);
-  return { players: rows, count: rows.length, me: rows.find((r) => r.uid === String(uid)) || null };
+  const { rows: [l] } = await pool.query('select starts_at from lobbies where id = $1', [LOBBY]);
+  return { players: rows, count: rows.length, me: rows.find((r) => r.uid === String(uid)) || null, startsAt: l?.starts_at || null, isAdmin: isAdmin(tg) };
 }
 
 const app = express();
 app.use(express.json());
 app.use(express.static('public'));
 
-app.get('/api/lobby', auth, wrap(async (req, res) => res.json(await state(req.tg.id))));
-app.get('/api/me', auth, wrap(async (req, res) => res.json({ me: (await state(req.tg.id)).me })));
+app.get('/api/lobby', auth, wrap(async (req, res) => res.json(await state(req.tg))));
+app.get('/api/me', auth, wrap(async (req, res) => res.json({ me: (await state(req.tg)).me })));
 
 app.post('/api/claim', auth, wrap(async (req, res) => {
   const team = Number(req.body.team);
@@ -88,7 +96,7 @@ app.post('/api/claim', auth, wrap(async (req, res) => {
       `insert into role_assignments (lobby_id, telegram_user_id, telegram_username, team, role)
        values ($1, $2, $3, $4, $5)`, [LOBBY, req.tg.id, username, team, role]);
     await c.query('commit');
-    res.json(await state(req.tg.id));
+    res.json(await state(req.tg));
   } catch (e) {
     await c.query('rollback').catch(() => {});
     if (e.code !== '23505') throw e;
@@ -103,7 +111,54 @@ app.post('/api/claim', auth, wrap(async (req, res) => {
 // Only deletes the caller's own row (identity from validated initData).
 app.post('/api/release', auth, wrap(async (req, res) => {
   await pool.query('delete from role_assignments where lobby_id = $1 and telegram_user_id = $2', [LOBBY, req.tg.id]);
-  res.json(await state(req.tg.id));
+  res.json(await state(req.tg));
 }));
+
+
+const admin = (req, res, next) => (isAdmin(req.tg) ? next() : res.status(403).json({ error: 'forbidden' }));
+
+app.post('/api/admin/time', auth, admin, wrap(async (req, res) => {
+  const t = req.body.startsAt ? new Date(req.body.startsAt) : null;
+  if (t && (isNaN(t) || t < Date.now())) return res.status(400).json({ error: 'bad_time' });
+  const mins = t ? (t - Date.now()) / 60000 : 0;
+  // Windows that already passed are marked as sent, so reminders never fire late or twice.
+  await pool.query('update lobbies set starts_at = $2, notified20 = $3, notified10 = $4 where id = $1',
+    [LOBBY, t, mins <= 20, mins <= 10]);
+  res.json(await state(req.tg));
+}));
+app.post('/api/admin/kick', auth, admin, wrap(async (req, res) => {
+  await pool.query('delete from role_assignments where lobby_id = $1 and telegram_user_id = $2', [LOBBY, req.body.uid]);
+  res.json(await state(req.tg));
+}));
+app.post('/api/admin/reset', auth, admin, wrap(async (req, res) => {
+  await pool.query('delete from role_assignments where lobby_id = $1', [LOBBY]);
+  res.json(await state(req.tg));
+}));
+
+async function notify(m) {
+  const { rows } = await pool.query('select telegram_user_id::text as id from role_assignments where lobby_id = $1', [LOBBY]);
+  const msg = { text: `⏰ Через ${m} минут начинается кастомная игра! Заходи в лобби.` };
+  if (APP_URL) msg.reply_markup = { inline_keyboard: [[{ text: 'Открыть лобби', web_app: { url: APP_URL } }]] };
+  for (const r of rows) {
+    const resp = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: r.id, ...msg }),
+    }).catch(() => null);
+    if (!resp?.ok) console.error('notify failed for', r.id);
+  }
+}
+
+async function tick() {
+  const { rows: [l] } = await pool.query('select starts_at, notified20, notified10 from lobbies where id = $1', [LOBBY]);
+  if (!l?.starts_at) return;
+  const mins = (new Date(l.starts_at) - Date.now()) / 60000;
+  for (const [m, col] of [[20, 'notified20'], [10, 'notified10']]) {
+    if (mins > 0 && mins <= m && !l[col]) {
+      // Atomic flag flip: only one process/tick can win and send.
+      const r = await pool.query(`update lobbies set ${col} = true where id = $1 and ${col} = false`, [LOBBY]);
+      if (r.rowCount) await notify(m);
+    }
+  }
+}
+setInterval(() => tick().catch(console.error), 15000);
 
 app.listen(PORT, () => console.log(`PartyFinder on :${PORT}`));

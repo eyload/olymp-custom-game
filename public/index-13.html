@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>OLYMP CUSTOM BOT</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--card:#0e0e0f;--ink:#f4f4f4;--mut:#9a9a9a;--hair:rgba(255,255,255,.08);--hair2:rgba(255,255,255,.2);
+--red:#e5121d;--red2:#b81c22;--dgray:#2a2a2a;--glow:229,18,29;
+--sb:max(env(safe-area-inset-bottom),var(--tg-safe-area-inset-bottom,0px));
+--st:calc(var(--tg-content-safe-area-inset-top,0px) + var(--tg-safe-area-inset-top,0px));
+--f:"Montserrat",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{overscroll-behavior-y:none}
+html.lock,html.lock body{overflow:hidden}
+body{margin:0;min-height:100vh;min-height:100dvh;color:var(--ink);font:400 15px/1.55 var(--f);background:var(--bg)}
+/* Two red corner lights on pure black. Fixed, static layers: painted once, scrolling stays cheap.
+   When the lobby is full the second layer fades in and both corners flare up. */
+body::before,body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none}
+body::before{background:radial-gradient(circle at 0 0,#ef1823 0,rgba(214,20,30,.8) 9vmax,rgba(110,8,15,.5) 24vmax,transparent 46vmax),radial-gradient(circle at 100% 100%,#ef1823 0,rgba(214,20,30,.8) 8vmax,rgba(110,8,15,.5) 21vmax,transparent 40vmax)}
+body::after{background:radial-gradient(circle at 0 0,rgba(239,24,35,.85) 0,transparent 62vmax),radial-gradient(circle at 100% 100%,rgba(239,24,35,.85) 0,transparent 56vmax);opacity:0;transition:opacity 1.6s ease}
+body.full::after{opacity:1}
+button,input{font-family:var(--f)}
+#app{max-width:880px;margin:0 auto;padding:20px 16px calc(var(--sb) + 36px)}
+
+h1{margin:2px 0 0;font:800 clamp(22px,7vw,34px)/1.12 var(--f);text-transform:uppercase;color:#fff}
+.sub{margin-top:14px;font:600 16px/1.35 var(--f);color:#fff}
+.sub small{display:block;margin-top:3px;font:400 13px var(--f);color:rgba(255,255,255,.82)}
+h2{margin:0 0 6px;font:700 17px/1.3 var(--f)}
+.mut,small{color:var(--mut)}
+.eye{margin-bottom:6px;font:500 12px var(--f);color:var(--mut)}
+.back{display:inline-flex;align-items:center;gap:9px;padding:4px 0 14px;color:#fff;font:600 13px var(--f);cursor:pointer}
+.back::before{content:"";width:7px;height:7px;border-left:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg)}
+.cd{min-height:1.4em;margin:2px 0 8px;font:700 13px var(--f);color:#ff4b55}
+
+/* Flat tiles, like the palette swatches: solid fills, one radius */
+.card{margin-top:12px;padding:18px;border-radius:12px;background:var(--card);border:1px solid var(--hair);transition:box-shadow .6s}
+.stat{min-height:140px;display:flex;flex-direction:column;background:var(--red);border-color:transparent}
+.stat .eye{color:rgba(255,255,255,.92);font-weight:600}
+.stat b{margin-top:auto;font:800 36px/1 var(--f);font-variant-numeric:tabular-nums}
+.stat.done b{font-size:24px}
+.stat.done{box-shadow:0 0 70px -10px rgba(var(--glow),.85)}
+.bar{height:6px;margin-top:16px;border-radius:99px;background:rgba(0,0,0,.28);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;background:#fff;transition:width .7s cubic-bezier(.22,1,.36,1)}
+.me{background:var(--red2);border-color:transparent}
+.me .eye{color:rgba(255,255,255,.85)}.me .mut{color:rgba(255,255,255,.9)}
+.me .pri{background:#fff;color:var(--red2);box-shadow:none}
+.me .sec{background:transparent;border-color:rgba(255,255,255,.55);color:#fff}
+.gray{background:var(--dgray);border-color:transparent}.gray .eye{color:#d6d6d6}
+.code{font:800 24px/1.2 var(--f);letter-spacing:.16em}
+.teams{display:grid;gap:0 12px}@media(min-width:720px){.teams{grid-template-columns:1fr 1fr}}
+.th{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:13px;font:800 14px var(--f);text-transform:uppercase;letter-spacing:.02em;
+background:linear-gradient(var(--red),var(--red)) left bottom/36px 2px no-repeat,linear-gradient(var(--hair2),var(--hair2)) left bottom/100% 1px no-repeat}
+.th span{color:var(--mut);font:600 13px var(--f);text-transform:none;letter-spacing:0;font-variant-numeric:tabular-nums}
+
+.role{width:100%;display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;text-align:left;color:var(--ink);background:none;border:0;border-bottom:1px solid var(--hair);border-radius:0;padding:12px 0;min-height:68px;font:inherit;transition:background .25s,opacity .3s}
+.role:last-child{border-bottom:0;padding-bottom:2px}
+.role i{position:relative;overflow:hidden;width:44px;height:44px;border-radius:10px;display:grid;place-items:center;font:700 11px/1 var(--f);font-style:normal;color:#cfcfcf;background:#1a1a1b;border:1px solid var(--hair2);transition:background .3s,border-color .3s}
+.role i img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.role span b{display:block;font:700 14px var(--f)}.role small{font-size:12.5px}
+.role em{font:700 12px var(--f);font-style:normal;padding:10px 18px;border-radius:8px}
+.role.free{cursor:pointer}.role.free em{background:var(--red);color:#fff}.role.free:active{background:rgba(var(--glow),.1)}
+.role.taken{opacity:.55;cursor:default}.role.taken em{color:var(--mut);padding-right:0}
+.role.mine{opacity:1}.role.mine i{background:var(--red);border-color:var(--red);color:#fff}
+.role.mine em{color:#ff5a63;padding-right:0}.role.mine small{color:#ff8a91}
+
+.btn{display:block;width:100%;min-height:50px;border:1px solid transparent;border-radius:10px;font:700 13px var(--f);margin-top:10px;color:#fff;transition:opacity .2s,transform .15s ease}
+.btn:active{opacity:.85;transform:scale(.985)}.btn:disabled{opacity:.4}
+.pri{background:var(--red);box-shadow:0 8px 28px -10px rgba(var(--glow),.9)}
+.sec{background:transparent;border-color:var(--hair2)}
+.btn:focus-visible,.role:focus-visible{outline:2px solid #fff;outline-offset:2px}
+
+.ov,.ov-out{position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:flex-end;justify-content:center;z-index:5;overscroll-behavior:contain;animation:f .18s}
+.sheet{width:100%;max-width:520px;max-height:calc(100vh - var(--st) - 24px);max-height:calc(100dvh - var(--st) - 24px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+background:var(--card);border:1px solid var(--hair2);border-bottom:0;border-top:2px solid var(--red);border-radius:18px 18px 0 0;padding:24px 20px calc(var(--sb) + 20px);animation:u .3s cubic-bezier(.22,1,.36,1)}
+.sheet p{margin:6px 0}
+.sheet input{width:100%;height:52px;margin-top:6px;padding:0 16px;border-radius:10px;border:1px solid var(--hair2);background:#000;color:#fff;font-size:16px;outline:0;color-scheme:dark;transition:border-color .25s,box-shadow .3s}
+.sheet input::placeholder{color:#666}
+.sheet input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(var(--glow),.25)}
+#er{color:#ff6b75;font-size:14px;min-height:20px;margin-top:6px}
+.ok{width:52px;height:52px;border-radius:50%;border:2px solid var(--red);color:var(--red);display:grid;place-items:center;font-size:22px;margin-bottom:14px}
+.toast{position:fixed;left:50%;top:calc(var(--st) + 12px);transform:translateX(-50%);z-index:9;background:#121213;border:1px solid var(--hair2);border-left:3px solid var(--red);padding:12px 18px;border-radius:10px;font:600 14px var(--f);width:max-content;max-width:92%;text-align:center;animation:ti .28s cubic-bezier(.22,1,.36,1)}
+.toast.good{border-left-color:#fff}.toast.out{animation:tout .25s ease-in forwards}
+.gate{padding:30vh 8px 0;text-align:center}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--hair);font-size:14px}
+.x{width:auto;min-height:34px;padding:0 14px;margin:0;font-size:11px}
+.pm{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;min-height:52px;margin:0;padding:6px 0;background:none;border:0;border-bottom:1px solid var(--hair);border-radius:0;color:var(--ink);font:600 14px var(--f);text-align:left}
+.pm i{flex:none;position:relative;width:44px;height:26px;border-radius:99px;background:#2a2a2a;transition:background .2s}
+.pm i::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .2s}
+.pm.on i{background:var(--red)}.pm.on i::after{transform:translateX(18px)}
+.pm:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.row>small{flex:none;white-space:nowrap}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:16px;padding:4px;border-radius:12px;background:var(--card);border:1px solid var(--hair)}
+.tab{min-height:44px;padding:0 8px;border:0;border-radius:9px;background:transparent;color:var(--mut);font:700 13px var(--f);transition:background .2s,color .2s,transform .15s ease}
+.tab:active{transform:scale(.97)}.tab.on{background:var(--red);color:#fff;box-shadow:0 6px 22px -10px rgba(var(--glow),.9)}
+.tab:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.gm{cursor:pointer}.gm:active{border-color:var(--red);box-shadow:0 0 36px -10px rgba(var(--glow),.8)}
+.chip{display:inline-block;margin-left:8px;padding:2px 10px;border-radius:6px;font:600 12px var(--f);color:#ff7680;border:1px solid rgba(var(--glow),.6)}
+.me .chip{color:#fff;border-color:rgba(255,255,255,.7)}
+.credit{max-width:880px;margin:0 auto;padding:0 16px calc(var(--sb) + 28px);text-align:center;font:500 12px/1.4 var(--f);color:var(--mut)}
+.credit a{color:#ff4b55;font-weight:700;text-decoration:none}.credit a:active{opacity:.7}
+.credit a:focus-visible{outline:2px solid #fff;outline-offset:2px;border-radius:3px}
+@keyframes f{from{opacity:0}}@keyframes u{from{transform:translateY(40px);opacity:0}}
+@keyframes fo{to{opacity:0}}@keyframes d{to{transform:translateY(40px);opacity:0}}
+@keyframes ti{from{opacity:0;transform:translate(-50%,-10px)}}@keyframes tout{to{opacity:0;transform:translate(-50%,-8px)}}
+.ov-out{pointer-events:none;animation:fo .22s ease-in forwards}.ov-out .sheet{animation:d .24s ease-in forwards}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="credit">Создано при поддержке бота <a href="https://t.me/refillstorebot?start=aff_5100806492" id="refillLink">REFILL</a></div>
+<script>
+const tg = Telegram.WebApp;
+tg.ready(); tg.expand();
+// Without this, swiping down while the page/sheet is scrolled to the top minimizes the Mini App in Telegram.
+try { tg.disableVerticalSwipes?.(); } catch {}
+try { tg.setHeaderColor('#000000'); tg.setBackgroundColor('#000000'); } catch {}
+
+const ROLES = [['jungle','Jungle','#f87171','JG'],['exp','EXP','#fb923c','EX'],['mid','Mid','#a78bfa','MD'],['gold','Gold','#facc15','GD'],['roam','Roam','#38bdf8','RM']];
+const MSG = {
+  role_taken:'Эта роль уже занята.', has_role:'Ты уже занял роль.', full:'Лобби уже заполнено.',
+  bad_username:'Username: 5–32 символа, латиница, цифры и _.', auth:'Не удалось подтвердить вход через Telegram.',
+  network:'Нет соединения. Попробуй ещё раз.', db:'Ошибка сервера. Попробуй ещё раз.', bad_time:'Укажи время в будущем.', forbidden:'Нет доступа.', not_full:'Есть свободные роли — займи любую.', rate_limited:'Слишком часто. Подожди пару секунд.', cooldown:'Модератор может отправлять рассылку раз в минуту.', banned:'Тебе закрыт доступ к играм.', locked:'Набор в эту игру закрыт.', protected:'Нельзя трогать того, чей ранг равен твоему или выше.', exists:'Этот человек уже в списке персонала.', bad_handle:'Укажи @username (5–32 символа) или числовой Telegram id.', not_found:'Запись не найдена.'
+};
+// Sections (modes) of the main screen. A section listed in SOON has no games yet: tapping it only shows its message.
+// To open the tournament section later, delete its line from SOON.
+const TABS = [['custom', 'Кастомные игры'], ['tournament', 'Турнирные игры']];
+const SOON = { tournament: 'Ждите анонсов предстоящего турнира чата OLYMP MLBB!' };
+const ROLE_NAME = { owner: 'Владелец', admin: 'Админ', mod: 'Модератор' };
+// Rights an owner can give to staff (labels only; the server decides what is really allowed).
+const PERMS = [['create', 'Создавать игры'], ['delete', 'Удалять игры'], ['time', 'Менять время старта'], ['reset', 'Сбрасывать лобби'], ['room', 'Менять код комнаты'],
+  ['kick', 'Убирать игроков'], ['broadcast', 'Рассылки и напоминания'], ['lock', 'Закрывать набор'], ['ban', 'Банить игроков'], ['log', 'Смотреть журнал']];
+const ACT = { time: 'изменил время', kick: 'убрал игрока', reset: 'сбросил лобби', room: 'сменил код комнаты', broadcast: 'сделал рассылку', remind: 'напомнил о подтверждении',
+  lock: 'открыл/закрыл набор', ban: 'забанил', unban: 'разбанил', game: 'создал игру', delete: 'удалил игру', 'staff/save': 'изменил персонал', 'staff/remove': 'убрал из персонала' };
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => '&#' + c.charCodeAt(0) + ';');
+const roleName = k => ROLES.find(r => r[0] === k)[1];
+// Remember which role icons loaded / failed, so re-renders don't flash the letters or re-request missing files.
+const imgOk = new Set(), imgBad = new Set();
+let lastPct = null;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+const fade = n => { if (!reduce.matches && n.animate) n.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 260, easing: 'ease-out' }); };
+const sameAttrs = (a, b) => { const x = a.getAttributeNames(); return x.length === b.getAttributeNames().length && x.every(k => a.getAttribute(k) === b.getAttribute(k)); };
+const pure = x => x.children.length > 0 && x.childNodes.length === x.children.length;
+// Updates only the blocks that really changed instead of swapping the whole innerHTML:
+// no flicker, loaded images and scroll position stay, and changed blocks fade in softly.
+function patchChildren(el, nu) {
+  const old = [...el.children];
+  nu.forEach((n, i) => {
+    const o = old[i];
+    if (!o) { el.append(n); fade(n); return; }
+    if (o.isEqualNode(n)) return;
+    if (o.tagName === n.tagName && o.id === n.id && pure(o) && pure(n) && sameAttrs(o, n)) { patchChildren(o, [...n.children]); return; }
+    o.replaceWith(n); fade(n);
+  });
+  old.slice(nu.length).forEach(o => o.remove());
+}
+function patch(el, html) {
+  const t = document.createElement('div');
+  t.innerHTML = html;
+  patchChildren(el, [...t.children]);
+}
+let S = { players: [], count: 0, me: null }, loaded = false, last = '', view = 'list', G = null, GAMES = null;
+let tab = TABS.find(([k]) => !SOON[k])[0]; // current section of the main screen
+const can = p => !!(view === 'list' ? GAMES : S)?.perms?.includes(p); // rights the server gave this person
+const myRole = () => (view === 'list' ? GAMES : S)?.role;
+
+async function api(path, method = 'GET', body) {
+  try {
+    const r = await fetch('/api/' + path, { method, body: body && JSON.stringify(body),
+      headers: { 'Content-Type': 'application/json', 'X-Init-Data': tg.initData, 'X-Lobby': G || '' } });
+    const j = await r.json().catch(() => ({}));
+    return { ok: r.ok, status: r.status, ...j };
+  } catch { return { ok: false, error: 'network' }; }
+}
+
+function toast(t, kind, ms = 2600) {
+  const e = document.createElement('div');
+  e.className = 'toast ' + (kind || ''); e.textContent = t; document.body.append(e);
+  try { tg.HapticFeedback.notificationOccurred(kind === 'err' ? 'error' : 'success'); } catch {}
+  setTimeout(() => { e.classList.add('out'); setTimeout(() => e.remove(), 260); }, ms);
+}
+
+let lockY = 0;
+function sheet(html, still) {
+  closeSheet(true);
+  const o = document.createElement('div');
+  o.className = 'ov'; o.innerHTML = '<div class="sheet">' + html + '</div>';
+  o.onclick = e => { if (e.target === o) closeSheet(); };
+  if (still) { o.style.animation = 'none'; o.firstChild.style.animation = 'none'; } // re-opened in place: no flicker
+  lockY = window.scrollY;
+  document.documentElement.classList.add('lock'); // page behind the sheet must not scroll
+  document.body.append(o); tg.BackButton.show();
+  return o.firstChild;
+}
+function closeSheet(instant) {
+  const o = $('.ov');
+  if (o) {
+    if (instant === true || reduce.matches) o.remove();
+    else { o.className = 'ov-out'; setTimeout(() => o.remove(), 260); } // slide/fade out instead of vanishing
+  }
+  tg.BackButton.hide();
+  const de = document.documentElement;
+  if (de.classList.contains('lock')) { de.classList.remove('lock'); window.scrollTo(0, lockY); }
+}
+tg.BackButton.onClick(() => closeSheet());
+
+function render() {
+  const y = window.scrollY; // innerHTML swap must not throw the user back to the top
+  const { players, count, me } = S, full = count >= 10;
+  const team = t => `<section class="card"><div class="th"><b>Команда ${t}</b><span>${players.filter(p => p.team === t).length} / 5</span></div>` +
+    ROLES.map(([k, n, c, ab]) => {
+      const p = players.find(p => p.team === t && p.role === k), mine = p && me && p.uid === me.uid;
+      return `<button class="role ${p ? 'taken' : 'free'} ${mine ? 'mine' : ''}" style="--c:${c}" ${p ? 'disabled' : ''} data-t="${t}" data-r="${k}">
+        <i${imgOk.has(k) ? ' style="color:transparent"' : ''}>${ab}${imgBad.has(k) ? '' : `<img src="roles/${k}.png" alt="" width="40" height="40" decoding="async" onload="imgOk.add('${k}');this.parentNode.setAttribute('style','color:transparent')" onerror="imgBad.add('${k}');this.remove()">`}</i><span><b>${n}</b><small>${p ? (p.confirmed ? '✓ ' : '') + '@' + esc(p.username) : 'Свободно'}</small></span>
+        <em>${p ? (mine ? 'Ты' : 'Занято') : 'Занять'}</em></button>`;
+    }).join('') + '</section>';
+  document.body.classList.toggle('full', full); // a full lobby lights the background up
+  const pct = count * 10, from = lastPct ?? 0;
+  patch($('#app'), `
+    <div id="bk" class="back">Все игры</div><h1>OLYMP CUSTOM BOT</h1><div class="sub">${esc(S.title || 'Собираем команду')}<small>Mobile Legends, 5 × 5</small></div>
+    <div class="card stat ${full ? 'done' : ''}"><div class="eye">Игроки в лобби</div><b>${full ? 'Команда собрана' : count + ' / 10'}</b><div class="bar"><i style="width:${from}%"></i></div></div>
+    <div class="card"><div class="eye">Старт игры</div><h2>${S.startsAt ? fmt(S.startsAt) : 'Время пока не назначено'}</h2>
+      <div id="cd" class="cd">${cdText()}</div><small>Время по Бишкеку (UTC+6). Игроки с ролью получат напоминания за 20 и 10 минут.</small>${S.role ? '<button id="adm" class="btn sec">Управление игрой</button>' : ''}</div>
+    ${S.locked && !me ? '<div class="card gray"><div class="eye">Набор закрыт</div><small>Организаторы закрыли набор в эту игру. Следи за анонсами.</small></div>' : ''}
+    ${!me && count >= 10 ? (S.queuePos
+      ? `<div class="card"><h2>Ты №${S.queuePos} из ${S.queueTotal} в очереди</h2><small>Роль достанется автоматически, когда кто-то освободит место.</small><button id="ql" class="btn sec">Выйти из очереди</button></div>`
+      : `<div class="card"><h2>Лобби заполнено</h2><small>В очереди: ${S.queueTotal}. Встань, и роль достанется тебе автоматически.</small><button id="qj" class="btn pri">Встать в очередь</button></div>`) : ''}
+    ${S.roomCode ? `<div class="card gray"><div class="eye">Код комнаты</div><h2 id="rc" class="code">${esc(S.roomCode)}</h2><small>Нажми, чтобы скопировать</small></div>` : ''}
+    ${me ? `<div class="card me"><div class="eye">Твоя роль</div><h2>Команда ${me.team}, ${roleName(me.role)}</h2>
+      <div class="mut">@${esc(me.username)}${me.confirmed ? '<span class="chip">на месте</span>' : ''}</div>${S.startsAt && !me.confirmed ? '<button id="cf" class="btn pri">Я на месте</button>' : ''}<button id="rel" class="btn sec">Освободить роль</button></div>` : ''}
+    <div class="teams">${team(1)}${team(2)}</div>`);
+  const bi = $('.bar i');
+  if (bi && from !== pct) { void bi.offsetWidth; bi.setAttribute('style', 'width:' + pct + '%'); } // animate the progress bar
+  lastPct = pct;
+  window.scrollTo(0, y);
+  tickCd();
+}
+
+$('#app').addEventListener('click', e => {
+  const b = e.target.closest('.role.free');
+  if (b) return openClaim(+b.dataset.t, b.dataset.r);
+  const tb = e.target.closest('.tab');
+  if (tb) {
+    const k = tb.dataset.tab;
+    if (SOON[k]) { if (!$('.toast.soon')) toast(SOON[k], 'good soon', 4500); return; }
+    if (k !== tab) { tab = k; GAMES = null; last = ''; load(); } // switch mode
+    return;
+  }
+  const gm = e.target.closest('.gm'); if (gm) return openGame(+gm.dataset.g);
+  if (e.target.id === 'bk') goList();
+  if (e.target.id === 'ng') openCreate();
+  if (e.target.id === 'rel') openRelease();
+  if (e.target.id === 'adm') openAdmin();
+  if (e.target.id === 'pnl') openPanel();
+  if (e.target.id === 'cf') confirmMe();
+  if (e.target.id === 'qj') openQueue();
+  if (e.target.id === 'ql') leaveQueue();
+  if (e.target.id === 'rc') { navigator.clipboard?.writeText(S.roomCode); toast('Код скопирован.', 'good'); }
+});
+
+function openClaim(team, key) {
+  if (S.me) return openMove(team, key);
+  const u = tg.initDataUnsafe?.user?.username;
+  const sh = sheet(`<h2>${roleName(key)}</h2><div class="mut">Команда ${team}</div>
+    <p>Укажи Telegram username, чтобы занять эту роль.</p>
+    <label class="mut">Твой Telegram username</label>
+    <input id="un" placeholder="@username" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" value="${u ? '@' + esc(u) : ''}">
+    <div id="er"></div><button id="go" class="btn pri">Занять роль</button><button id="no" class="btn sec">Отмена</button>`);
+  const inp = sh.querySelector('#un'), go = sh.querySelector('#go');
+  const sync = () => { go.disabled = !inp.value.trim().replace(/^@/, ''); sh.querySelector('#er').textContent = ''; };
+  inp.oninput = sync; sync();
+  sh.querySelector('#no').onclick = closeSheet;
+  go.onclick = async () => {
+    go.disabled = true; go.textContent = '…';
+    const r = await api('claim', 'POST', { team, role: key, username: inp.value });
+    if (r.ok) {
+      S = r; render();
+      sh.innerHTML = `<div class="ok">✓</div><h2>Роль занята!</h2><p class="mut">Команда ${team}</p><h2>${roleName(key)}</h2>
+        <div class="mut">@${esc(r.me.username)}</div><button id="done" class="btn pri">Готово</button>`;
+      sh.querySelector('#done').onclick = closeSheet;
+      try { tg.HapticFeedback.notificationOccurred('success'); tg.requestWriteAccess?.(); } catch {}
+      return;
+    }
+    go.textContent = 'Занять роль'; sync();
+    if (r.error === 'bad_username') return void (sh.querySelector('#er').textContent = MSG.bad_username);
+    toast(MSG[r.error] || 'Не удалось занять роль. Попробуй ещё раз.', 'err');
+    if (['role_taken', 'full', 'has_role'].includes(r.error)) { closeSheet(); load(); }
+  };
+}
+
+function openRelease() {
+  const sh = sheet(`<h2>Освободить роль?</h2><p class="mut">Команда ${S.me.team}, ${roleName(S.me.role)}: роль снова станет доступна другим.</p>
+    <button id="yes" class="btn pri">Освободить</button><button id="no" class="btn sec">Отмена</button>`);
+  sh.querySelector('#no').onclick = closeSheet;
+  sh.querySelector('#yes').onclick = async () => {
+    const r = await api('release', 'POST');
+    closeSheet();
+    if (r.ok) { S = r; render(); toast('Роль освобождена.', 'good'); }
+    else toast(MSG[r.error] || 'Не удалось освободить роль.', 'err');
+  };
+}
+
+const fmt = d => new Date(d).toLocaleString('ru-RU', { timeZone: 'Asia/Bishkek', weekday: 'short', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
+const fmtShort = d => new Date(d).toLocaleString('ru-RU', { timeZone: 'Asia/Bishkek', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+
+// ---- Per-game controls (what each person sees depends on the rights the server gave them) ----
+function openAdmin() {
+  const prev = $('.ov .sheet')?.scrollTop || 0, re = !!$('.ov .sheet'); // keep scroll position when the panel is refreshed after an action
+  const loc = d => new Date(new Date(d).getTime() + 6 * 3600000).toISOString().slice(0, 16); // Бишкек = UTC+6
+  const sh = sheet(`<h2>Управление игрой</h2><p class="mut">Твоя роль: ${ROLE_NAME[S.role] || '—'}</p>` +
+    (can('time') ? `<label class="mut">Дата и время старта (по Бишкеку, UTC+6)</label>
+    <input id="dt" type="datetime-local" value="${S.startsAt ? loc(S.startsAt) : ''}"><div id="er"></div>
+    <button id="sv" class="btn pri">Сохранить время</button><button id="cl" class="btn sec">Убрать время</button>` : '') +
+    (can('room') ? `<label class="mut" style="display:block;margin-top:16px">Код комнаты (увидят игроки с ролью)</label>
+    <input id="rm" value="${esc(S.roomCode || '')}" placeholder="например 12345678" maxlength="32"><button id="rmb" class="btn sec">Сохранить код</button>` : '') +
+    (can('broadcast') ? `<label class="mut" style="display:block;margin-top:16px">Сообщение игрокам с ролью</label>
+    <input id="bc" placeholder="Текст рассылки" maxlength="500"><button id="bcb" class="btn sec">Отправить всем</button>
+    <button id="rmd" class="btn sec">Напомнить тем, кто не подтвердил участие</button>` : '') +
+    (can('lock') ? `<button id="lk" class="btn sec">${S.locked ? 'Открыть набор' : 'Закрыть набор'}</button>` : '') +
+    `<div class="eye" style="margin-top:22px">Игроки</div>` +
+    (S.players.length ? S.players.map(p => `<div class="row"><span>@${esc(p.username)} <small>К${p.team}, ${roleName(p.role)}</small></span><span style="display:flex;gap:6px">` +
+      (can('kick') ? `<button class="btn sec x" data-k="${p.uid}">Убрать</button>` : '') +
+      (can('ban') ? `<button class="btn sec x" data-b="${p.uid}" data-n="${esc(p.username)}">Бан</button>` : '') + '</span></div>').join('') : '<p class="mut">Пока никого.</p>') +
+    (can('reset') ? '<button id="rs" class="btn sec">Сбросить лобби</button>' : '') +
+    (can('delete') ? '<button id="dg" class="btn sec">Удалить игру</button>' : '') +
+    `<button id="no" class="btn sec">Закрыть</button>`, re);
+  sh.scrollTop = prev;
+  const act = async (path, body, okText) => {
+    const r = await api('admin/' + path, 'POST', body);
+    if (r.ok) { S = r; render(); toast(typeof okText === 'function' ? okText(r) : okText, 'good'); openAdmin(); } else toast(MSG[r.error] || MSG.db, 'err');
+  };
+  const on = (sel, fn) => { const el = sh.querySelector(sel); if (el) el.onclick = fn; };
+  on('#sv', () => {
+    const v = sh.querySelector('#dt').value;
+    if (!v) return void (sh.querySelector('#er').textContent = 'Выбери дату и время.');
+    act('time', { startsAt: new Date(v + ':00+06:00').toISOString() }, 'Время сохранено.');
+  });
+  on('#cl', () => act('time', { startsAt: null }, 'Время убрано.'));
+  on('#rmb', () => act('room', { code: sh.querySelector('#rm').value }, 'Код сохранён.'));
+  on('#bcb', () => { const t = sh.querySelector('#bc').value.trim(); if (t) act('broadcast', { text: t }, r => `Рассылка отправлена: ${r.sent}.`); });
+  on('#rmd', () => act('remind', {}, r => `Напоминание отправлено: ${r.sent}.`));
+  on('#lk', () => act('lock', { locked: !S.locked }, S.locked ? 'Набор открыт.' : 'Набор закрыт.'));
+  sh.querySelectorAll('[data-k]').forEach(b => b.onclick = () => act('kick', { uid: b.dataset.k }, 'Игрок убран.'));
+  sh.querySelectorAll('[data-b]').forEach(b => b.onclick = () => tg.showConfirm(`Забанить @${b.dataset.n}? Он потеряет роли во всех играх и не сможет занимать новые.`,
+    ok => ok && act('ban', { uid: b.dataset.b, username: b.dataset.n }, 'Игрок забанен.')));
+  on('#rs', () => tg.showConfirm('Сбросить лобби? Все роли освободятся.', ok => ok && act('reset', {}, 'Лобби сброшено.')));
+  on('#dg', () => tg.showConfirm('Удалить игру целиком? Роли и очередь пропадут.', async ok => {
+    if (!ok) return;
+    const r = await api('admin/delete', 'POST'); closeSheet();
+    if (r.ok) { toast('Игра удалена.', 'good'); goList(); } else toast(MSG[r.error] || MSG.db, 'err');
+  }));
+  on('#no', closeSheet);
+}
+
+// ---- Global admin panel (opened from the main screen): staff & rights, bans, action log ----
+const PANEL = [['staff', 'Персонал и права', () => openStaff()], ['ban', 'Баны', () => openBans()], ['log', 'Журнал действий', () => openLog()]];
+function openPanel() {
+  const sh = sheet(`<h2>Админ-панель</h2><p class="mut">Твоя роль: ${ROLE_NAME[myRole()] || '—'}</p>` +
+    PANEL.filter(([p]) => can(p)).map(([p, n]) => `<button class="btn sec" data-o="${p}">${n}</button>`).join('') +
+    '<button id="no" class="btn pri">Закрыть</button>', !!$('.ov .sheet'));
+  sh.querySelectorAll('[data-o]').forEach(b => b.onclick = () => PANEL.find(x => x[0] === b.dataset.o)[2]());
+  sh.querySelector('#no').onclick = closeSheet;
+}
+
+async function openStaff() {
+  const r = await api('admin/staff');
+  if (!r.ok) return void toast(MSG[r.error] || MSG.db, 'err');
+  const nm = x => x.handle ? '@' + esc(x.handle) : 'id ' + esc(x.uid);
+  const sh = sheet(`<h2>Персонал и права</h2><p class="mut">Владельцы заданы на сервере (переменная ADMINS): у них всегда все права, убрать их здесь нельзя. Остальным права выдаёшь ты, по каждому отдельно.</p>
+    <div class="eye">Владельцы</div>` +
+    (r.owners.length ? r.owners.map(o => `<div class="row"><span>${/^\d+$/.test(o) ? 'id ' : '@'}${esc(o)}</span><small>Владелец</small></div>`).join('') : '<p class="mut">Не заданы.</p>') +
+    '<div class="eye" style="margin-top:20px">Админы и модераторы</div>' +
+    (r.staff.length ? r.staff.map(x => `<div class="row"><span>${nm(x)} <small>${ROLE_NAME[x.role]} · прав: ${x.perms.length}${x.uid ? '' : ' · ждёт первого входа'}</small></span><button class="btn sec x" data-e="${x.id}">Изменить</button></div>`).join('') : '<p class="mut">Пока никого.</p>') +
+    '<button id="sa" class="btn pri">Добавить сотрудника</button><button id="bk" class="btn sec">Назад</button>', !!$('.ov .sheet'));
+  sh.querySelector('#sa').onclick = () => openStaffEdit(r, null);
+  sh.querySelectorAll('[data-e]').forEach(b => b.onclick = () => openStaffEdit(r, r.staff.find(x => x.id === +b.dataset.e)));
+  sh.querySelector('#bk').onclick = openPanel;
+}
+
+function openStaffEdit(D, row) {
+  let role = row ? row.role : 'mod';
+  const perms = new Set(row ? row.perms : D.presets.mod);
+  const sh = sheet(`<h2>${row ? 'Права сотрудника' : 'Новый сотрудник'}</h2>` +
+    (row ? `<p class="mut">${row.handle ? '@' + esc(row.handle) : 'id ' + esc(row.uid)}</p>`
+      : '<label class="mut">Telegram @username или числовой id</label><input id="sh" placeholder="@username" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">') +
+    `<div class="tabs" id="rl"></div><div class="eye" style="margin-top:18px">Права</div><div id="pl"></div><div id="er"></div>
+    <button id="sv" class="btn pri">Сохранить</button>${row ? '<button id="rm" class="btn sec">Убрать из персонала</button>' : ''}<button id="bk" class="btn sec">Назад</button>`, !!$('.ov .sheet'));
+  const draw = () => {
+    sh.querySelector('#rl').innerHTML = ['admin', 'mod'].map(k => `<button class="tab${k === role ? ' on' : ''}" data-r="${k}">${ROLE_NAME[k]}</button>`).join('');
+    sh.querySelector('#pl').innerHTML = PERMS.map(([k, n]) => `<button class="pm${perms.has(k) ? ' on' : ''}" data-p="${k}"><span>${n}</span><i></i></button>`).join('');
+  };
+  draw();
+  sh.querySelector('#rl').onclick = e => { // switching the role loads that role's default rights, which can then be adjusted
+    const b = e.target.closest('[data-r]');
+    if (!b || b.dataset.r === role) return;
+    role = b.dataset.r; perms.clear(); D.presets[role].forEach(p => perms.add(p)); draw();
+  };
+  sh.querySelector('#pl').onclick = e => {
+    const b = e.target.closest('[data-p]');
+    if (!b) return;
+    perms.has(b.dataset.p) ? perms.delete(b.dataset.p) : perms.add(b.dataset.p); draw();
+  };
+  sh.querySelector('#bk').onclick = openStaff;
+  sh.querySelector('#sv').onclick = async () => {
+    const r = await api('admin/staff/save', 'POST', { role, perms: [...perms], ...(row ? { id: row.id } : { handle: sh.querySelector('#sh').value }) });
+    if (!r.ok) return void (sh.querySelector('#er').textContent = MSG[r.error] || MSG.db);
+    toast('Сохранено.', 'good'); openStaff();
+  };
+  const rm = sh.querySelector('#rm');
+  if (rm) rm.onclick = () => tg.showConfirm('Убрать из персонала? Права пропадут сразу.', async ok => {
+    if (!ok) return;
+    const r = await api('admin/staff/remove', 'POST', { id: row.id });
+    if (r.ok) { toast('Убран из персонала.', 'good'); openStaff(); } else toast(MSG[r.error] || MSG.db, 'err');
+  });
+}
+
+async function openBans() {
+  const r = await api('admin/bans');
+  if (!r.ok) return void toast(MSG[r.error] || MSG.db, 'err');
+  const sh = sheet('<h2>Баны</h2><p class="mut">Забаненные не могут занимать роли и вставать в очередь. Забанить можно в «Управлении игрой», кнопка «Бан» рядом с игроком.</p>' +
+    (r.bans.length ? r.bans.map(b => `<div class="row"><span>${b.username ? '@' + esc(b.username) : 'id ' + esc(b.uid)} <small>${fmtShort(b.at)}</small></span><button class="btn sec x" data-u="${b.uid}">Разбанить</button></div>`).join('') : '<p class="mut">Список пуст.</p>') +
+    '<button id="bk" class="btn sec">Назад</button>', !!$('.ov .sheet'));
+  sh.querySelectorAll('[data-u]').forEach(b => b.onclick = async () => {
+    const x = await api('admin/unban', 'POST', { uid: b.dataset.u });
+    if (x.ok) { toast('Разбанен.', 'good'); openBans(); } else toast(MSG[x.error] || MSG.db, 'err');
+  });
+  sh.querySelector('#bk').onclick = openPanel;
+}
+
+async function openLog() {
+  const r = await api('admin/log');
+  if (!r.ok) return void toast(MSG[r.error] || MSG.db, 'err');
+  const sh = sheet('<h2>Журнал действий</h2><p class="mut">Последние 60 действий персонала.</p>' +
+    (r.log.length ? r.log.map(e => `<div class="row"><span><b>${e.actorName ? '@' + esc(e.actorName) : 'id ' + esc(e.actorId)}</b> <small>${ROLE_NAME[e.role] || ''}</small><br>${esc(ACT[e.action] || e.action)}${e.lobbyId ? ` <small>· игра №${e.lobbyId}</small>` : ''}` +
+      `${e.detail ? `<small style="display:block;word-break:break-word">${esc(e.detail.slice(0, 120))}</small>` : ''}</span><small>${fmtShort(e.at)}</small></div>`).join('') : '<p class="mut">Пока пусто.</p>') +
+    '<button id="bk" class="btn sec">Назад</button>', !!$('.ov .sheet'));
+  sh.querySelector('#bk').onclick = openPanel;
+}
+
+function cdText() {
+  if (!S.startsAt) return '';
+  const m = Math.round((new Date(S.startsAt) - Date.now()) / 60000);
+  return m <= 0 ? 'Игра уже началась' : 'Через ' + (m >= 60 ? Math.floor(m / 60) + ' ч ' : '') + (m % 60) + ' мин';
+}
+function tickCd() { const el = $('#cd'); if (el) el.textContent = cdText(); }
+
+async function confirmMe() {
+  const r = await api('confirm', 'POST');
+  if (r.ok) { S = r; render(); toast('Участие подтверждено.', 'good'); } else toast(MSG[r.error] || MSG.db, 'err');
+}
+
+function openMove(team, key) {
+  const sh = sheet(`<h2>Сменить роль?</h2><p class="mut">Сейчас: команда ${S.me.team}, ${roleName(S.me.role)}.<br>Будет: команда ${team}, ${roleName(key)}.</p>
+    <button id="yes" class="btn pri">Перейти</button><button id="no" class="btn sec">Отмена</button>`);
+  sh.querySelector('#no').onclick = closeSheet;
+  sh.querySelector('#yes').onclick = async () => {
+    const r = await api('move', 'POST', { team, role: key });
+    closeSheet();
+    if (r.ok) { S = r; render(); toast('Роль изменена.', 'good'); } else { toast(MSG[r.error] || MSG.db, 'err'); load(); }
+  };
+}
+
+function openQueue() {
+  const u = tg.initDataUnsafe?.user?.username;
+  const sh = sheet(`<h2>Очередь</h2><p>Укажи Telegram username. Когда освободится роль, она достанется тебе автоматически.</p>
+    <input id="un" placeholder="@username" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" value="${u ? '@' + esc(u) : ''}">
+    <div id="er"></div><button id="go" class="btn pri">Встать в очередь</button><button id="no" class="btn sec">Отмена</button>`);
+  sh.querySelector('#no').onclick = closeSheet;
+  sh.querySelector('#go').onclick = async () => {
+    const r = await api('queue/join', 'POST', { username: sh.querySelector('#un').value });
+    if (r.error === 'bad_username') return void (sh.querySelector('#er').textContent = MSG.bad_username);
+    closeSheet();
+    if (r.ok) { S = r; render(); toast('Ты в очереди.', 'good'); try { tg.requestWriteAccess?.(); } catch {} }
+    else { toast(MSG[r.error] || MSG.db, 'err'); load(); }
+  };
+}
+
+async function leaveQueue() {
+  const r = await api('queue/leave', 'POST');
+  if (r.ok) { S = r; render(); toast('Ты вышел из очереди.', 'good'); } else toast(MSG[r.error] || MSG.db, 'err');
+}
+
+let booted = false;
+function renderList() {
+  const { games } = GAMES;
+  document.body.classList.remove('full');
+  patch($('#app'), `<h1>OLYMP CUSTOM BOT</h1><div class="sub">Выбери игру<small>Mobile Legends</small></div>` +
+    `<div class="tabs">${TABS.map(([k, n]) => `<button class="tab${k === tab ? ' on' : ''}" data-tab="${k}">${n}</button>`).join('')}</div>` +
+    (games.length ? games.map(g => `<div class="card gm" data-g="${g.id}" style="cursor:pointer"><div class="th"><b>${esc(g.title)}</b><span>${g.count} / 10</span></div>
+      <div class="mut" style="margin-top:10px">${g.startsAt ? fmt(g.startsAt) : 'Время не назначено'}${g.mine ? '<span class="chip">ты в игре</span>' : ''}${g.locked ? '<span class="chip">набор закрыт</span>' : ''}</div></div>`).join('') : '<div class="card"><h2>Игр пока нет</h2></div>') +
+    (can('create') ? '<button id="ng" class="btn pri">Создать игру</button>' : '') +
+    (PANEL.some(([p]) => can(p)) ? '<button id="pnl" class="btn sec">Админ-панель</button>' : ''));
+}
+async function loadList() {
+  const r = await api('games?mode=' + tab);
+  if (!r.ok) { if (!GAMES) $('#app').innerHTML = `<div class="gate"><h2>${MSG[r.error] || MSG.db}</h2><button class="btn pri" onclick="load()">Повторить</button></div>`; return; }
+  if (!booted) {
+    booted = true;
+    const g = +new URLSearchParams(location.search).get('g') || (r.games.length === 1 ? r.games[0].id : 0);
+    if (g && r.games.some(x => x.id === g)) return openGame(g);
+  }
+  const k = JSON.stringify(r);
+  if (!GAMES || k !== last) { GAMES = r; last = k; renderList(); }
+}
+function openGame(id) { G = id; view = 'game'; S = { players: [], count: 0, me: null }; loaded = false; last = ''; $('#app').innerHTML = ''; lastPct = null; window.scrollTo(0, 0); load(); }
+function goList() { G = null; view = 'list'; GAMES = null; last = ''; window.scrollTo(0, 0); load(); }
+function openCreate() {
+  const sh = sheet(`<h2>Новая игра</h2><label class="mut">Название</label><input id="gt" maxlength="40" placeholder="Например: Кастомка вечером">
+    <label class="mut" style="display:block;margin-top:12px">Дата и время старта (по Бишкеку, UTC+6)</label><input id="gd" type="datetime-local">
+    <div id="er"></div><button id="gc" class="btn pri">Создать</button><button id="no" class="btn sec">Отмена</button>`);
+  sh.querySelector('#no').onclick = closeSheet;
+  sh.querySelector('#gc').onclick = async () => {
+    const title = sh.querySelector('#gt').value.trim(), v = sh.querySelector('#gd').value;
+    if (!title) return void (sh.querySelector('#er').textContent = 'Укажи название.');
+    const r = await api('admin/game', 'POST', { title, mode: tab, startsAt: v ? new Date(v + ':00+06:00').toISOString() : null });
+    if (!r.ok) return void (sh.querySelector('#er').textContent = MSG[r.error] || MSG.db);
+    closeSheet(); toast('Игра создана.', 'good'); openGame(r.id);
+  };
+}
+
+async function load() {
+  if (view === 'list') return loadList();
+  const r = await api('lobby');
+  if (r.ok && r.gone) { toast('Игра больше недоступна.', 'err'); return goList(); }
+  if (r.ok) {
+    const k = JSON.stringify([r.players, r.startsAt, r.role, r.perms, r.roomCode, r.queuePos, r.queueTotal, r.title, r.locked]);
+    if (!loaded || k !== last) { S = r; last = k; render(); }
+    loaded = true;
+  } else if (!loaded) {
+    $('#app').innerHTML = `<div class="gate"><h2>${MSG[r.error] || MSG.db}</h2><button class="btn pri" onclick="load()">Повторить</button></div>`;
+  }
+}
+
+if (!tg.initData) {
+  $('#app').innerHTML = '<div class="gate"><h2>Открой PartyFinder через Telegram</h2><p class="mut">Приложение работает только как Telegram Mini App.</p></div>';
+} else {
+  load();
+  // Self-scheduling poll with jitter: requests never overlap and clients don't hit the server in lockstep.
+  let busy = false;
+  (function poll() {
+    setTimeout(async () => {
+      if (!document.hidden && !busy) { busy = true; try { await load(); } finally { busy = false; } }
+      poll();
+    }, 3500 + Math.random() * 1500);
+  })();
+  setInterval(tickCd, 30000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) load(); });
+}
+document.getElementById('refillLink').addEventListener('click', e => {
+  e.preventDefault();
+  try { tg.openTelegramLink('https://t.me/refillstorebot?start=aff_5100806492'); }
+  catch { window.open('https://t.me/refillstorebot?start=aff_5100806492', '_blank'); }
+});
+</script>
+</body>
+</html>

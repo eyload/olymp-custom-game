@@ -71,7 +71,7 @@ function auth(req, res, next) {
 const wrap = (fn) => (req, res) =>
   fn(req, res).catch((e) => { console.error(e); res.status(500).json({ error: 'db' }); });
 
-const ACTS = { '/time': 'изменил время старта', '/kick': 'убрал игрока', '/reset': 'сбросил лобби', '/room': 'изменил код комнаты', '/broadcast': 'отправил сообщение' };
+const ACTS = { '/time': 'изменил время старта', '/kick': 'убрал игрока', '/reset': 'сбросил лобби', '/room': 'изменил код комнаты', '/broadcast': 'разослал объявление' };
 const admin = (req, res, next) => {
   if (!isAdmin(req.tg)) return res.status(403).json({ error: 'forbidden' });
   res.on('finish', () => res.statusCode < 400 && pool.query('insert into admin_log (admin_username, action) values ($1, $2)',

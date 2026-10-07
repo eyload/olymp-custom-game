@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>OLYMP CUSTOM BOT</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0507;--card:#130a0e;--line:#2e131b;--line2:#45202a;--red:#ff3b4e;--red2:#c4122c;--rose:#ff8a96;--amber:#ffb454;--mut:#9c8389;
+--sb:max(env(safe-area-inset-bottom),var(--tg-safe-area-inset-bottom,0px));
+--st:calc(var(--tg-content-safe-area-inset-top,0px) + var(--tg-safe-area-inset-top,0px));
+--fd:"Oswald","Onest",system-ui,sans-serif;--fb:"Onest",-apple-system,system-ui,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;min-height:100vh;color:#fff;font:400 16px/1.45 var(--fb);
+background:repeating-linear-gradient(115deg,rgba(255,60,80,.03) 0 1px,transparent 1px 18px),radial-gradient(100% 34% at 50% -6%,rgba(196,18,44,.22),transparent 70%),var(--bg)}
+button,input{font-family:var(--fb)}
+#app{max-width:880px;margin:0 auto;padding:22px 16px calc(var(--sb) + 32px)}
+h1{margin:8px 0 6px;font:600 clamp(22px,7vw,32px)/1.1 var(--fd);letter-spacing:.14em;text-transform:uppercase}
+h1::after{content:"";display:block;width:36px;height:2px;background:var(--red);margin-top:12px}
+h2{margin:0 0 6px;font:500 20px/1.2 var(--fd);letter-spacing:.05em;text-transform:uppercase}
+.mut,small{color:var(--mut)}.eye{color:var(--red);font:500 11px var(--fd);letter-spacing:.22em;text-transform:uppercase}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin-top:14px}
+.stat b{font:500 18px var(--fd);letter-spacing:.07em;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.bar{height:4px;border-radius:2px;background:#2a1118;margin-top:12px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--red);transition:width .4s}
+.stat.done{border-color:var(--red)}.stat.done b{color:var(--rose)}
+.me{border-left:3px solid var(--amber)}
+.teams{display:grid;gap:0 14px}@media(min-width:720px){.teams{grid-template-columns:1fr 1fr}}
+.th{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:10px;border-bottom:1px solid var(--red2);font:500 16px var(--fd);letter-spacing:.14em}
+.th span{color:var(--mut);font:500 14px var(--fd);letter-spacing:.08em}
+.role{width:100%;display:grid;grid-template-columns:40px 1fr auto;gap:14px;align-items:center;text-align:left;color:#fff;background:none;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:12px 0;min-height:64px;font:inherit;transition:background .15s,opacity .2s}
+.role:last-child{border-bottom:0;padding-bottom:2px}
+.role i{position:relative;overflow:hidden;width:40px;height:40px;border-radius:6px;display:grid;place-items:center;font:500 12px/1 var(--fd);letter-spacing:.06em;font-style:normal;color:var(--c);background:#0c0508;border:1px solid color-mix(in srgb,var(--c) 50%,transparent)}
+.role i img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.role span b{display:block;font:500 16px var(--fd);letter-spacing:.1em}.role small{font-size:13px}
+.role em{font:500 12px var(--fd);letter-spacing:.14em;text-transform:uppercase;font-style:normal;padding:9px 14px;border-radius:6px}
+.role.free{cursor:pointer}.role.free em{background:var(--red2);color:#fff}.role.free:active{background:rgba(255,59,78,.07)}
+.role.taken{opacity:.55;cursor:default}.role.taken em{color:var(--mut);padding-right:0}
+.role.mine{opacity:1}.role.mine em,.role.mine small{color:var(--amber)}
+.btn{display:block;width:100%;min-height:50px;border:1px solid transparent;border-radius:8px;font:500 15px var(--fd);letter-spacing:.14em;text-transform:uppercase;margin-top:10px;color:#fff;transition:opacity .2s}
+.btn:active{opacity:.8}.btn:disabled{opacity:.4}.pri{background:var(--red2)}.sec{background:transparent;border-color:var(--line2)}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.72);display:flex;align-items:flex-end;justify-content:center;animation:f .18s}
+.sheet{width:100%;max-width:520px;background:var(--card);border:1px solid var(--line2);border-bottom:0;border-top:2px solid var(--red2);border-radius:14px 14px 0 0;padding:22px 18px calc(var(--sb) + 18px);animation:u .22s ease-out}
+.sheet p{margin:6px 0}.sheet input{width:100%;height:52px;margin-top:6px;padding:0 14px;border-radius:8px;border:1px solid var(--line2);background:#0c0508;color:#fff;font-size:16px;outline:0;color-scheme:dark}
+.sheet input:focus{border-color:var(--red)}
+#er{color:#ff7a86;font-size:14px;min-height:20px;margin-top:6px}
+.ok{width:52px;height:52px;border-radius:50%;border:2px solid var(--red);color:var(--red);display:grid;place-items:center;font-size:24px;margin-bottom:12px}
+.toast{position:fixed;left:50%;top:calc(var(--st) + 12px);transform:translateX(-50%);z-index:9;background:#1a0b10;border:1px solid var(--line2);border-left:3px solid var(--red);padding:12px 16px;border-radius:8px;font-size:15px;font-weight:500;max-width:92%;text-align:center;animation:f .2s}.toast.err{border-left-color:#ff5a6a}.toast.good{border-left-color:var(--amber)}
+.gate{padding:30vh 8px 0;text-align:center}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}.x{width:auto;min-height:34px;padding:0 12px;margin:0;font-size:12px;letter-spacing:.1em}
+@keyframes f{from{opacity:0}}@keyframes u{from{transform:translateY(40px);opacity:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const tg = Telegram.WebApp;
+tg.ready(); tg.expand();
+try { tg.setHeaderColor('#0a0507'); tg.setBackgroundColor('#0a0507'); } catch {}
+
+const ROLES = [['jungle','JUNGLE','#f87171','JG'],['exp','EXP','#fb923c','EX'],['mid','MID','#a78bfa','MD'],['gold','GOLD','#facc15','GD'],['roam','ROAM','#38bdf8','RM']];
+const MSG = {
+  role_taken:'Эта роль уже занята.', has_role:'Ты уже занял роль.', full:'Лобби уже заполнено.',
+  bad_username:'Username: 5–32 символа, латиница, цифры и _.', auth:'Не удалось подтвердить вход через Telegram.',
+  network:'Нет соединения. Попробуй ещё раз.', db:'Ошибка сервера. Попробуй ещё раз.', bad_time:'Укажи время в будущем.', forbidden:'Нет доступа.'
+};
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => '&#' + c.charCodeAt(0) + ';');
+const roleName = k => ROLES.find(r => r[0] === k)[1];
+let S = { players: [], count: 0, me: null }, loaded = false, last = '';
+
+async function api(path, method = 'GET', body) {
+  try {
+    const r = await fetch('/api/' + path, { method, body: body && JSON.stringify(body),
+      headers: { 'Content-Type': 'application/json', 'X-Init-Data': tg.initData } });
+    const j = await r.json().catch(() => ({}));
+    return { ok: r.ok, status: r.status, ...j };
+  } catch { return { ok: false, error: 'network' }; }
+}
+
+function toast(t, kind) {
+  const e = document.createElement('div');
+  e.className = 'toast ' + (kind || ''); e.textContent = t; document.body.append(e);
+  try { tg.HapticFeedback.notificationOccurred(kind === 'err' ? 'error' : 'success'); } catch {}
+  setTimeout(() => e.remove(), 2800);
+}
+
+function sheet(html) {
+  closeSheet();
+  const o = document.createElement('div');
+  o.className = 'ov'; o.innerHTML = '<div class="sheet">' + html + '</div>';
+  o.onclick = e => { if (e.target === o) closeSheet(); };
+  document.body.append(o); tg.BackButton.show();
+  return o.firstChild;
+}
+function closeSheet() { $('.ov')?.remove(); tg.BackButton.hide(); }
+tg.BackButton.onClick(closeSheet);
+
+function render() {
+  const { players, count, me } = S, full = count >= 10;
+  const team = t => `<section class="card"><div class="th"><b>КОМАНДА ${t}</b><span>${players.filter(p => p.team === t).length} / 5</span></div>` +
+    ROLES.map(([k, n, c, ab]) => {
+      const p = players.find(p => p.team === t && p.role === k), mine = p && me && p.uid === me.uid;
+      return `<button class="role ${p ? 'taken' : 'free'} ${mine ? 'mine' : ''}" style="--c:${c}" ${p ? 'disabled' : ''} data-t="${t}" data-r="${k}">
+        <i>${ab}<img src="roles/${k}.png" alt="" onload="this.parentNode.style.color='transparent'" onerror="this.remove()"></i><span><b>${n}</b><small>${p ? '@' + esc(p.username) : 'Свободно'}</small></span>
+        <em>${p ? (mine ? 'Ты' : 'Занято') : 'Занять'}</em></button>`;
+    }).join('') + '</section>';
+  $('#app').innerHTML = `
+    <div class="eye">MOBILE LEGENDS</div><h1>OLYMP CUSTOM BOT</h1><div class="mut">Собираем команду 5 × 5</div>
+    <div class="card stat ${full ? 'done' : ''}"><b>${full ? 'Команда собрана!' : count + ' / 10 игроков'}</b>
+      ${full ? `<small> 10 / 10 игроков</small>` : ''}<div class="bar"><i style="width:${count * 10}%"></i></div></div>
+    <div class="card"><div class="eye">СТАРТ ИГРЫ</div><h2>${S.startsAt ? fmt(S.startsAt) : 'Время пока не назначено'}</h2>
+      <small>Время по Бишкеку (UTC+6). Игроки с ролью получат напоминания за 20 и 10 минут.</small>${S.isAdmin ? '<button id="adm" class="btn sec">Админ-панель</button>' : ''}</div>
+    ${me ? `<div class="card me"><div class="eye">ТВОЯ РОЛЬ</div><h2>Команда ${me.team} · ${roleName(me.role)}</h2>
+      <div class="mut">@${esc(me.username)}</div><button id="rel" class="btn sec">Освободить роль</button></div>` : ''}
+    <div class="teams">${team(1)}${team(2)}</div>`;
+}
+
+$('#app').addEventListener('click', e => {
+  const b = e.target.closest('.role.free');
+  if (b) return openClaim(+b.dataset.t, b.dataset.r);
+  if (e.target.id === 'rel') openRelease();
+  if (e.target.id === 'adm') openAdmin();
+});
+
+function openClaim(team, key) {
+  if (S.me) return toast(MSG.has_role, 'err');
+  const u = tg.initDataUnsafe?.user?.username;
+  const sh = sheet(`<h2>${roleName(key)}</h2><div class="mut">Команда ${team}</div>
+    <p>Укажи Telegram username, чтобы занять эту роль.</p>
+    <label class="mut">Твой Telegram username</label>
+    <input id="un" placeholder="@username" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" value="${u ? '@' + esc(u) : ''}">
+    <div id="er"></div><button id="go" class="btn pri">Занять роль</button><button id="no" class="btn sec">Отмена</button>`);
+  const inp = sh.querySelector('#un'), go = sh.querySelector('#go');
+  const sync = () => { go.disabled = !inp.value.trim().replace(/^@/, ''); sh.querySelector('#er').textContent = ''; };
+  inp.oninput = sync; sync();
+  sh.querySelector('#no').onclick = closeSheet;
+  go.onclick = async () => {
+    go.disabled = true; go.textContent = '…';
+    const r = await api('claim', 'POST', { team, role: key, username: inp.value });
+    if (r.ok) {
+      S = r; render();
+      sh.innerHTML = `<div class="ok">✓</div><h2>Роль занята!</h2><p class="mut">Команда ${team}</p><h2>${roleName(key)}</h2>
+        <div class="mut">@${esc(r.me.username)}</div><button id="done" class="btn pri">Готово</button>`;
+      sh.querySelector('#done').onclick = closeSheet;
+      try { tg.HapticFeedback.notificationOccurred('success'); tg.requestWriteAccess?.(); } catch {}
+      return;
+    }
+    go.textContent = 'Занять роль'; sync();
+    if (r.error === 'bad_username') return void (sh.querySelector('#er').textContent = MSG.bad_username);
+    toast(MSG[r.error] || 'Не удалось занять роль. Попробуй ещё раз.', 'err');
+    if (['role_taken', 'full', 'has_role'].includes(r.error)) { closeSheet(); load(); }
+  };
+}
+
+function openRelease() {
+  const sh = sheet(`<h2>Освободить роль?</h2><p class="mut">Команда ${S.me.team} · ${roleName(S.me.role)} снова станет доступна другим.</p>
+    <button id="yes" class="btn pri">Освободить</button><button id="no" class="btn sec">Отмена</button>`);
+  sh.querySelector('#no').onclick = closeSheet;
+  sh.querySelector('#yes').onclick = async () => {
+    const r = await api('release', 'POST');
+    closeSheet();
+    if (r.ok) { S = r; render(); toast('Роль освобождена.', 'good'); }
+    else toast(MSG[r.error] || 'Не удалось освободить роль.', 'err');
+  };
+}
+
+const fmt = d => new Date(d).toLocaleString('ru-RU', { timeZone: 'Asia/Bishkek', weekday: 'short', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
+
+function openAdmin() {
+  const loc = d => new Date(new Date(d).getTime() + 6 * 3600000).toISOString().slice(0, 16); // Бишкек = UTC+6
+  const sh = sheet(`<h2>Админ-панель</h2><label class="mut">Дата и время старта (по Бишкеку, UTC+6)</label>
+    <input id="dt" type="datetime-local" value="${S.startsAt ? loc(S.startsAt) : ''}"><div id="er"></div>
+    <button id="sv" class="btn pri">Сохранить время</button><button id="cl" class="btn sec">Убрать время</button>
+    <div class="eye" style="margin-top:20px">ИГРОКИ</div>` +
+    (S.players.length ? S.players.map(p => `<div class="row"><span>К${p.team} · ${roleName(p.role)} · @${esc(p.username)}</span><button class="btn sec x" data-k="${p.uid}">Убрать</button></div>`).join('') : '<p class="mut">Пока никого.</p>') +
+    `<button id="rs" class="btn sec">Сбросить лобби</button><button id="no" class="btn sec">Закрыть</button>`);
+  const act = async (path, body, okText) => {
+    const r = await api('admin/' + path, 'POST', body);
+    if (r.ok) { S = r; render(); toast(okText, 'good'); openAdmin(); } else toast(MSG[r.error] || MSG.db, 'err');
+  };
+  sh.querySelector('#sv').onclick = () => {
+    const v = sh.querySelector('#dt').value;
+    if (!v) return void (sh.querySelector('#er').textContent = 'Выбери дату и время.');
+    act('time', { startsAt: new Date(v + ':00+06:00').toISOString() }, 'Время сохранено.');
+  };
+  sh.querySelector('#cl').onclick = () => act('time', { startsAt: null }, 'Время убрано.');
+  sh.querySelectorAll('[data-k]').forEach(b => b.onclick = () => act('kick', { uid: b.dataset.k }, 'Игрок убран.'));
+  sh.querySelector('#rs').onclick = () => tg.showConfirm('Сбросить лобби? Все роли освободятся.', ok => ok && act('reset', {}, 'Лобби сброшено.'));
+  sh.querySelector('#no').onclick = closeSheet;
+}
+
+async function load() {
+  const r = await api('lobby');
+  if (r.ok) {
+    const k = JSON.stringify([r.players, r.startsAt, r.isAdmin]);
+    if (!loaded || k !== last) { S = r; last = k; render(); }
+    loaded = true;
+  } else if (!loaded) {
+    $('#app').innerHTML = `<div class="gate"><h2>${MSG[r.error] || MSG.db}</h2><button class="btn pri" onclick="load()">Повторить</button></div>`;
+  }
+}
+
+if (!tg.initData) {
+  $('#app').innerHTML = '<div class="gate"><h2>Открой PartyFinder через Telegram</h2><p class="mut">Приложение работает только как Telegram Mini App.</p></div>';
+} else {
+  load();
+  setInterval(() => { if (!document.hidden) load(); }, 3000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) load(); });
+}
+</script>
+</body>
+</html>

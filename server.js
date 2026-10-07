@@ -37,7 +37,7 @@ await pool.query(`
     add column if not exists title text not null default 'Кастомка';
   alter table role_assignments add column if not exists confirmed boolean not null default false;
   create table if not exists admin_log (id serial primary key, admin_username text not null, action text not null, created_at timestamptz not null default now());
-  create table if not exists queue (id serial primary key, lobby_id int not null default 1, telegram_user_id bigint not null, telegram_username text not null, created_at timestamptz not null default now(), constraint uq_queue unique (lobby_id, telegram_user_id));
+  create table if not exists queue (id serial primary key, lobby_id int not null default 1, telegram_user_id bigint not null, telegram_username text not null, created_at timestamptz not null default now());
   create table if not exists role_assignments (
     id serial primary key,
     lobby_id int not null references lobbies(id),
@@ -70,6 +70,14 @@ function auth(req, res, next) {
 
 const wrap = (fn) => (req, res) =>
   fn(req, res).catch((e) => { console.error(e); res.status(500).json({ error: 'db' }); });
+
+const ACTS = { '/time': 'изменил время старта', '/kick': 'убрал игрока', '/reset': 'сбросил лобби', '/room': 'изменил код комнаты', '/broadcast': 'отправил сообщение' };
+const admin = (req, res, next) => {
+  if (!isAdmin(req.tg)) return res.status(403).json({ error: 'forbidden' });
+  res.on('finish', () => res.statusCode < 400 && pool.query('insert into admin_log (admin_username, action) values ($1, $2)',
+    [req.tg.username || String(req.tg.id), ACTS[req.path.replace('/api/admin', '')] || req.path]).catch(console.error));
+  next();
+};
 
 async function state(tg) {
   const uid = tg.id;
@@ -134,9 +142,6 @@ app.post('/api/release', auth, wrap(async (req, res) => {
   res.json(await state(req.tg));
 }));
 
-
-
-
 app.post('/api/admin/time', auth, admin, wrap(async (req, res) => {
   const t = req.body.startsAt ? new Date(req.body.startsAt) : null;
   if (t && (isNaN(t) || t < Date.now())) return res.status(400).json({ error: 'bad_time' });
@@ -154,14 +159,6 @@ app.post('/api/admin/reset', auth, admin, wrap(async (req, res) => {
   await pool.query('delete from role_assignments where lobby_id = $1', [L()]);
   res.json(await state(req.tg));
 }));
-
-const ACTS = { '/time': 'изменил время старта', '/kick': 'убрал игрока', '/reset': 'сбросил лобби', '/room': 'изменил код комнаты', '/broadcast': 'сделал рассылку', '/game': 'создал игру', '/delete': 'удалил игру' };
-const admin = (req, res, next) => {
-  if (!isAdmin(req.tg)) return res.status(403).json({ error: 'forbidden' });
-  res.on('finish', () => res.statusCode < 400 && pool.query('insert into admin_log (admin_username, action) values ($1, $2)',
-    [req.tg.username || String(req.tg.id), ACTS[req.path.replace('/api/admin', '')] || req.path]).catch(console.error));
-  next();
-};
 
 // Player confirms attendance ("Я на месте"): only their own row.
 app.post('/api/confirm', auth, wrap(async (req, res) => {

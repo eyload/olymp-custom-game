@@ -1,0 +1,18 @@
+{
+  "name": "OLYMP CUSTOM GAME",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "ai:heroes": "node ai/check-heroes.js",
+    "ai:eval": "node ai/eval/run.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "@anthropic-ai/sdk": "latest",
+    "pg": "^8.12.0"
+  }
+}

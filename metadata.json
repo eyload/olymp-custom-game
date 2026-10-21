@@ -1,0 +1,8 @@
+{
+  "name": "Olymp Custom Game",
+  "description": "Telegram Web App for MLBB custom games, drafts, and player rankings.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

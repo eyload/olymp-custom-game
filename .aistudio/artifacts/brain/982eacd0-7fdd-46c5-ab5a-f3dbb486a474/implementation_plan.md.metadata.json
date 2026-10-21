@@ -1,0 +1,6 @@
+{
+  "summary":  "Comprehensive implementation plan to redesign the app with a crimson-burgundy gaming aesthetic inspired by the reference image, introduce an interactive Favorite Hero selection menu with detailed hero cards, migrate the AI engine to Gemini 2.5 Pro via @google/genai, and add Telegram match summary export.",
+  "updatedAt":  "2026-10-21T14:58:32.904132111Z",
+  "requestFeedback":  true,
+  "userFacing":  true
+}

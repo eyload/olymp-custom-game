@@ -1,4 +1,5 @@
 import express from 'express';
+import { GoogleGenAI } from '@google/genai';
 import pg from 'pg';
 import crypto from 'node:crypto';
 import path from 'node:path';
@@ -8,12 +9,12 @@ import { SNAPSHOT, SNAPSHOT_HEROES, BUILDS, BUILDS_SRC, ITEMS, heroRu } from './
 import { buildContext } from './ai/context.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const { DATABASE_URL, BOT_TOKEN, PORT = 3000, SEASON_DAYS = '90', APP_URL } = process.env;
+const { DATABASE_URL, BOT_TOKEN = 'mock_bot_token', PORT = 3000, SEASON_DAYS = '90', APP_URL } = process.env;
+if (!process.env.BOT_TOKEN) console.warn('[bot] BOT_TOKEN not set — telegram notifications will be simulated');
 // Сезон как в MLBB: номер, длина 90 дней и дата конца. Сейчас 42-й сезон, конец 16.12.2026 00:00 (Ереван, UTC+4).
 // Когда сезон истечёт, следующий создастся сам (номер +1, ещё 90 дней). Поменять можно переменными SEASON_NUMBER и SEASON_ENDS_AT.
 const SEASON_NUMBER = Number(process.env.SEASON_NUMBER) || 42;
 const SEASON_ENDS_AT = new Date(process.env.SEASON_ENDS_AT || '2026-12-15T20:00:00Z');
-if (!DATABASE_URL || !BOT_TOKEN) throw new Error('Set DATABASE_URL and BOT_TOKEN');
 
 // ── Настройки рейтинга ──────────────────────────────────────────────
 const MVP_RP = 25; // очков рейтинга за один MVP
@@ -33,15 +34,383 @@ const modBroadcastAt = new Map();
 const ownerIds = new Set();
 const isOwner = tg => OWNERS.includes(String(tg.id)) || (!!tg.username && OWNERS.includes(tg.username.toLowerCase()));
 
-const pool = new pg.Pool({
-  connectionString: DATABASE_URL,
-  ssl: /localhost|127\.0\.0\.1/.test(DATABASE_URL) ? false : { rejectUnauthorized: false },
-  max: Number(process.env.PG_POOL_MAX) || 20,
-  idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 10000,
-  statement_timeout: 15000,
-});
-pool.on('error', e => console.error('pg pool error', e));
+function createMockPool() {
+  const store = {
+    seasons: [
+      { id: 1, number: SEASON_NUMBER, name: `MLBB Season ${SEASON_NUMBER}`, starts_at: new Date(Date.now() - 30 * 864e5), ends_at: SEASON_ENDS_AT }
+    ],
+    season_scores: new Map([
+      ['1_101', { season_id: 1, telegram_user_id: '101', rating: 175, mvp_count: 7 }],
+      ['1_102', { season_id: 1, telegram_user_id: '102', rating: 110, mvp_count: 3 }]
+    ]),
+    users: new Map([
+      ['101', { telegram_user_id: '101', nick: 'Alex_MVP', mlbb_verified: true, mlbb_id: '12345678', mlbb_zone: '1234', favorite_hero: 'Fanny' }],
+      ['102', { telegram_user_id: '102', nick: 'Viktor_PRO', mlbb_verified: true, mlbb_id: '87654321', mlbb_zone: '4321', favorite_hero: 'Aulus' }]
+    ]),
+    lobbies: { id: 1, title: 'Кастомка', status: 'open', starts_at: null, notified20: false, notified10: false, room_code: null, locked: false },
+    role_assignments: [
+      { id: 1, lobby_id: 1, telegram_user_id: '101', telegram_username: 'alex_mvp', team: 1, role: 'jungle', confirmed: true },
+      { id: 2, lobby_id: 1, telegram_user_id: '102', telegram_username: 'viktor_pro', team: 2, role: 'exp', confirmed: true }
+    ],
+    staff: [],
+    bans: new Map(),
+    matches: [],
+    match_players: [],
+    reputation: [],
+    audit_log: [],
+    migrations: new Set(),
+    nextId: 100
+  };
+
+  const executeQuery = async (text, params = []) => {
+    const sql = String(text || '').trim();
+
+    // DDL, Advisory locks, Migrations, Transactions
+    if (/^(create|alter|create unique index|create index|select pg_advisory|begin|commit|rollback)/i.test(sql)) {
+      return { rows: [], rowCount: 1 };
+    }
+    if (/insert into app_migrations/i.test(sql)) {
+      return { rows: [], rowCount: 0 };
+    }
+
+    // Staff queries
+    if (/from staff/i.test(sql) && /select/i.test(sql)) {
+      return { rows: [...store.staff], rowCount: store.staff.length };
+    }
+    if (/update staff set uid/i.test(sql)) {
+      const row = store.staff.find(s => s.id === params[0]);
+      if (row) row.uid = String(params[1]);
+      return { rows: [], rowCount: 1 };
+    }
+    if (/update staff set role = \$2, perms = \$3 where id = \$1/i.test(sql)) {
+      const row = store.staff.find(s => s.id === Number(params[0]));
+      if (row) { row.role = params[1]; row.perms = params[2]; return { rows: [], rowCount: 1 }; }
+      return { rows: [], rowCount: 0 };
+    }
+    if (/insert into staff/i.test(sql)) {
+      store.staff.push({ id: ++store.nextId, uid: params[0], handle: params[1], role: params[2], perms: params[3], added_by: params[4], created_at: new Date() });
+      return { rows: [], rowCount: 1 };
+    }
+    if (/delete from staff/i.test(sql)) {
+      store.staff = store.staff.filter(s => s.id !== Number(params[0]));
+      return { rows: [], rowCount: 1 };
+    }
+
+    // Season queries
+    if (/select id from seasons where number = \$1/i.test(sql)) {
+      const s = store.seasons.find(x => x.number === Number(params[0]));
+      return { rows: s ? [{ id: s.id }] : [], rowCount: s ? 1 : 0 };
+    }
+    if (/select id from seasons where ends_at > now\(\) and number < \$1/i.test(sql)) {
+      return { rows: [], rowCount: 0 };
+    }
+    if (/select \* from seasons where ends_at > now\(\)/i.test(sql)) {
+      return { rows: [store.seasons[0]], rowCount: 1 };
+    }
+    if (/update seasons/i.test(sql)) {
+      return { rows: [], rowCount: 1 };
+    }
+    if (/insert into seasons/i.test(sql)) {
+      return { rows: [], rowCount: 1 };
+    }
+
+    // Season scores & leaderboard
+    if (/from season_scores sc join users u/i.test(sql)) {
+      const rows = [];
+      for (const sc of store.season_scores.values()) {
+        const u = store.users.get(String(sc.telegram_user_id));
+        if (u && sc.rating > 0) {
+          rows.push({
+            uid: String(sc.telegram_user_id),
+            name: u.mlbb_name || u.nick || u.telegram_username || 'Игрок',
+            avatar: u.mlbb_avatar || null,
+            rating: sc.rating,
+            mvp: sc.mvp_count
+          });
+        }
+      }
+      rows.sort((a, b) => b.rating - a.rating || b.mvp - a.mvp);
+      return { rows: rows.slice(0, 15), rowCount: rows.length };
+    }
+    if (/select rating, mvp_count from season_scores/i.test(sql)) {
+      const key = `${params[0]}:${params[1]}`;
+      const sc = store.season_scores.get(key);
+      return { rows: sc ? [sc] : [], rowCount: sc ? 1 : 0 };
+    }
+    if (/select count\(\*\)::int as n from season_scores/i.test(sql)) {
+      return { rows: [{ n: 0 }], rowCount: 1 };
+    }
+    if (/insert into season_scores/i.test(sql)) {
+      const sid = params[0], uid = String(params[1]), add = params[2];
+      const key = `${sid}:${uid}`;
+      const cur = store.season_scores.get(key) || { season_id: sid, telegram_user_id: uid, rating: 0, mvp_count: 0 };
+      cur.rating += add;
+      cur.mvp_count += 1;
+      store.season_scores.set(key, cur);
+      return { rows: [], rowCount: 1 };
+    }
+
+    // Badge queries
+    if (/select telegram_user_id::text as uid, coalesce\(sum\(mvp_count\)/i.test(sql)) {
+      return { rows: [], rowCount: 0 };
+    }
+    if (/select mp\.uid::text as uid, count\(\*\)::int as games/i.test(sql)) {
+      return { rows: [], rowCount: 0 };
+    }
+    if (/select sc\.telegram_user_id::text as uid, s\.number/i.test(sql)) {
+      return { rows: [], rowCount: 0 };
+    }
+    if (/select to_uid::text as uid/i.test(sql)) {
+      return { rows: [], rowCount: 0 };
+    }
+
+    // Users
+    if (/select \* from users where telegram_user_id = \$1/i.test(sql)) {
+      const u = store.users.get(String(params[0]));
+      return { rows: u ? [u] : [], rowCount: u ? 1 : 0 };
+    }
+    if (/insert into users/i.test(sql)) {
+      const uid = String(params[0]);
+      const prev = store.users.get(uid) || {};
+      const updated = {
+        ...prev,
+        telegram_user_id: uid,
+        telegram_username: params[1] || prev.telegram_username,
+        nick: params[2] || prev.nick,
+        mlbb_id: params[3] || prev.mlbb_id,
+        mlbb_zone: params[4] || prev.mlbb_zone,
+        mlbb_name: params[5] || prev.mlbb_name || prev.nick || 'Игрок',
+        mlbb_avatar: params[6] || prev.mlbb_avatar,
+        mlbb_level: params[7] || prev.mlbb_level,
+        mlbb_verified: true,
+        created_at: prev.created_at || new Date()
+      };
+      store.users.set(uid, updated);
+      return { rows: [], rowCount: 1 };
+    }
+    if (/update users set bio/i.test(sql)) {
+      const u = store.users.get(String(params[0]));
+      if (u) u.bio = params[1];
+      return { rows: [], rowCount: 1 };
+    }
+    if (/update users set favorite_hero/i.test(sql)) {
+      const u = store.users.get(String(params[0]));
+      if (u) u.favorite_hero = params[1] || null;
+      return { rows: [], rowCount: 1 };
+    }
+    if (/insert into users \(telegram_user_id, favorite_hero\)/i.test(sql)) {
+      const uid = String(params[0]);
+      const prev = store.users.get(uid) || { telegram_user_id: uid };
+      prev.favorite_hero = params[1] || null;
+      store.users.set(uid, prev);
+      return { rows: [], rowCount: 1 };
+    }
+    if (/from users where/i.test(sql)) {
+      return { rows: [], rowCount: 0 };
+    }
+
+    // Lobby & Claim
+    if (/select \(select coalesce\(json_agg\(json_build_object/i.test(sql)) {
+      const activeSeasonId = store.seasons[0]?.id || 1;
+      let topSeasonMvp = 0;
+      for (const [, sc] of store.season_scores.entries()) {
+        if (sc.season_id === activeSeasonId && (sc.mvp_count || 0) > topSeasonMvp) {
+          topSeasonMvp = sc.mvp_count;
+        }
+      }
+      const players = store.role_assignments.map(r => {
+        const u = store.users.get(String(r.telegram_user_id));
+        const scKey = `${activeSeasonId}_${r.telegram_user_id}`;
+        const sc = store.season_scores.get(scKey);
+        const seasonMvp = sc?.mvp_count || 0;
+        return {
+          uid: String(r.telegram_user_id),
+          name: u?.mlbb_name || u?.nick || r.telegram_username,
+          username: r.telegram_username,
+          team: r.team,
+          role: r.role,
+          confirmed: r.confirmed,
+          favoriteHero: u?.favorite_hero || null,
+          seasonMvp
+        };
+      });
+      return { rows: [{ players, lobby: store.lobbies, top_season_mvp: topSeasonMvp }], rowCount: 1 };
+    }
+    if (/select \(select mlbb_verified from users/i.test(sql)) {
+      const u = store.users.get(String(params[0]));
+      return {
+        rows: [{
+          verified: !!u?.mlbb_verified,
+          locked: !!store.lobbies.locked,
+          banned: store.bans.has(String(params[0]))
+        }],
+        rowCount: 1
+      };
+    }
+    if (/insert into role_assignments/i.test(sql)) {
+      const uid = String(params[0]), username = params[1], team = Number(params[2]), role = String(params[3]);
+      const existingSlot = store.role_assignments.find(r => r.team === team && r.role === role);
+      const existingUser = store.role_assignments.find(r => String(r.telegram_user_id) === uid);
+      if (existingSlot || existingUser) {
+        const err = new Error('Slot or user already exists');
+        err.code = '23505';
+        throw err;
+      }
+      store.role_assignments.push({
+        id: ++store.nextId,
+        lobby_id: 1,
+        telegram_user_id: uid,
+        telegram_username: username,
+        team,
+        role,
+        confirmed: false
+      });
+      return { rows: [], rowCount: 1 };
+    }
+    if (/delete from role_assignments where lobby_id = 1 and telegram_user_id = \$1/i.test(sql)) {
+      store.role_assignments = store.role_assignments.filter(r => String(r.telegram_user_id) !== String(params[0]));
+      return { rows: [], rowCount: 1 };
+    }
+    if (/delete from role_assignments where lobby_id = 1/i.test(sql)) {
+      store.role_assignments = [];
+      return { rows: [], rowCount: 1 };
+    }
+    if (/delete from role_assignments where telegram_user_id = \$1/i.test(sql)) {
+      store.role_assignments = store.role_assignments.filter(r => String(r.telegram_user_id) !== String(params[0]));
+      return { rows: [], rowCount: 1 };
+    }
+    if (/update role_assignments set confirmed = true/i.test(sql)) {
+      for (const r of store.role_assignments) {
+        if (String(r.telegram_user_id) === String(params[0])) r.confirmed = true;
+      }
+      return { rows: [], rowCount: 1 };
+    }
+    if (/select telegram_user_id::text as uid, r\.team, r\.role/i.test(sql)) {
+      const rows = store.role_assignments.map(r => {
+        const u = store.users.get(String(r.telegram_user_id));
+        return {
+          uid: String(r.telegram_user_id),
+          team: r.team,
+          role: r.role,
+          name: u?.mlbb_name || u?.nick || r.telegram_username
+        };
+      });
+      return { rows, rowCount: rows.length };
+    }
+    if (/select team, role from role_assignments/i.test(sql)) {
+      const r = store.role_assignments.find(x => String(x.telegram_user_id) === String(params[0]));
+      return { rows: r ? [{ team: r.team, role: r.role }] : [], rowCount: r ? 1 : 0 };
+    }
+
+    // Matches & history
+    if (/insert into matches/i.test(sql)) {
+      const matchId = ++store.nextId;
+      store.matches.push({ id: matchId, season_id: params[0], winner: params[1], mvp_uid: params[2], by_id: params[3], finished_at: new Date() });
+      return { rows: [{ id: matchId }], rowCount: 1 };
+    }
+    if (/insert into match_players/i.test(sql)) {
+      return { rows: [], rowCount: 1 };
+    }
+    if (/from matches m/i.test(sql)) {
+      return { rows: [], rowCount: 0 };
+    }
+
+    // Admin & Lobby settings
+    if (/update lobbies set starts_at/i.test(sql)) {
+      store.lobbies.starts_at = params[0];
+      store.lobbies.notified20 = params[1];
+      store.lobbies.notified10 = params[2];
+      return { rows: [], rowCount: 1 };
+    }
+    if (/update lobbies set room_code/i.test(sql)) {
+      store.lobbies.room_code = params[0];
+      return { rows: [], rowCount: 1 };
+    }
+    if (/update lobbies set locked/i.test(sql)) {
+      store.lobbies.locked = !!params[0];
+      return { rows: [], rowCount: 1 };
+    }
+    if (/select telegram_user_id::text as id from role_assignments/i.test(sql)) {
+      const rows = store.role_assignments.map(r => ({ id: String(r.telegram_user_id) }));
+      return { rows, rowCount: rows.length };
+    }
+    if (/select title from lobbies where id = 1/i.test(sql)) {
+      return { rows: [{ title: store.lobbies.title }], rowCount: 1 };
+    }
+    if (/select starts_at, notified20, notified10 from lobbies/i.test(sql)) {
+      return { rows: [{ starts_at: store.lobbies.starts_at, notified20: store.lobbies.notified20, notified10: store.lobbies.notified10 }], rowCount: 1 };
+    }
+
+    // Bans & Audit
+    if (/insert into bans/i.test(sql)) {
+      store.bans.set(String(params[0]), { telegram_user_id: params[0], username: params[1], by_id: params[2], created_at: new Date() });
+      return { rows: [], rowCount: 1 };
+    }
+    if (/delete from bans/i.test(sql)) {
+      store.bans.delete(String(params[0]));
+      return { rows: [], rowCount: 1 };
+    }
+    if (/select telegram_user_id::text as uid, username, created_at as at from bans/i.test(sql)) {
+      const rows = [...store.bans.values()].map(b => ({ uid: String(b.telegram_user_id), username: b.username, at: b.created_at }));
+      return { rows, rowCount: rows.length };
+    }
+    if (/insert into audit_log/i.test(sql)) {
+      store.audit_log.push({ actor_id: params[0], actor_name: params[1], role: params[2], action: params[3], detail: params[4], at: new Date() });
+      return { rows: [], rowCount: 1 };
+    }
+    if (/from audit_log order by id desc/i.test(sql)) {
+      return { rows: store.audit_log.slice(-60).reverse(), rowCount: store.audit_log.length };
+    }
+
+    // Hall & Reputation
+    if (/from seasons s where s\.ends_at < now\(\)/i.test(sql)) {
+      return { rows: [], rowCount: 0 };
+    }
+    if (/from match_players mp join matches m/i.test(sql) && /finished_at > now\(\) - interval '48 hours'/i.test(sql)) {
+      return { rows: [], rowCount: 0 };
+    }
+    if (/from reputation/i.test(sql)) {
+      return { rows: [], rowCount: 0 };
+    }
+
+    return { rows: [], rowCount: 0 };
+  };
+
+  return {
+    query: executeQuery,
+    connect: async () => ({
+      query: executeQuery,
+      release: () => {}
+    }),
+    on: () => {},
+    end: async () => {}
+  };
+}
+
+let pool;
+if (DATABASE_URL) {
+  try {
+    const realPool = new pg.Pool({
+      connectionString: DATABASE_URL,
+      ssl: /localhost|127\.0\.0\.1/.test(DATABASE_URL) ? false : { rejectUnauthorized: false },
+      max: Number(process.env.PG_POOL_MAX) || 20,
+      idleTimeoutMillis: 30000,
+      connectionTimeoutMillis: 5000,
+      statement_timeout: 15000,
+    });
+    realPool.on('error', e => console.error('pg pool error', e));
+    const client = await realPool.connect();
+    client.release();
+    pool = realPool;
+    console.log('[db] Connected to PostgreSQL');
+  } catch (err) {
+    console.warn('[db] Failed to connect to PostgreSQL, falling back to in-memory store:', err.message);
+    pool = createMockPool();
+  }
+} else {
+  console.warn('[db] DATABASE_URL not set — using in-memory store');
+  pool = createMockPool();
+}
 process.on('unhandledRejection', e => console.error('unhandledRejection', e));
 
 const STAFF_TTL = 3000;
@@ -94,6 +463,7 @@ const SCHEMA = `
   alter table users add column if not exists mlbb_verified boolean not null default false;
   alter table users add column if not exists mlbb_stats jsonb;
   alter table users add column if not exists bio text;
+  alter table users add column if not exists favorite_hero text;
   create unique index if not exists uq_mlbb_verified on users (mlbb_id, mlbb_zone) where mlbb_verified;
 
   create table if not exists seasons (
@@ -190,16 +560,20 @@ const SCHEMA = `
     detail text);
 `;
 {
-  const c = await pool.connect();
   try {
-    await c.query('select pg_advisory_lock(727001)'); // миграции при старте нескольких реплик идут по очереди
-    await c.query(SCHEMA);
-    // одноразово: уже существующему персоналу выдаём новое право «rep» (дальше его можно снимать вручную)
-    if ((await c.query("insert into app_migrations (k) values ('perm_rep') on conflict do nothing")).rowCount)
-      await c.query("update staff set perms = array_append(perms, 'rep') where not ('rep' = any(perms))");
-  } finally {
-    await c.query('select pg_advisory_unlock(727001)').catch(() => {});
-    c.release();
+    const c = await pool.connect();
+    try {
+      await c.query('select pg_advisory_lock(727001)'); // миграции при старте нескольких реплик идут по очереди
+      await c.query(SCHEMA);
+      // одноразово: уже существующему персоналу выдаём новое право «rep» (дальше его можно снимать вручную)
+      if ((await c.query("insert into app_migrations (k) values ('perm_rep') on conflict do nothing")).rowCount)
+        await c.query("update staff set perms = array_append(perms, 'rep') where not ('rep' = any(perms))");
+    } finally {
+      await c.query('select pg_advisory_unlock(727001)').catch(() => {});
+      c.release();
+    }
+  } catch (err) {
+    console.warn('[db] Schema initialization warning:', err.message);
   }
 }
 
@@ -318,6 +692,9 @@ async function throttle() {
   if (at > now) await sleep(at - now);
 }
 async function tgSend(chat_id, text, extra = {}) {
+  if (BOT_TOKEN === 'mock_bot_token') {
+    return true;
+  }
   for (let i = 0; i < 2; i++) {
     await throttle();
     const resp = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
@@ -459,6 +836,7 @@ async function fullProfile(uid, own) {
   let best = 0, run = 0; // лучшая серия побед в кастомках (матчи без победителя серию не рвут)
   for (const x of [...ms].reverse()) { if (x.winner == null) continue; if (x.winner === x.team) best = Math.max(best, ++run); else run = 0; }
   return { uid: String(uid), nick: u.mlbb_name || u.nick || u.telegram_username, bio: u.bio, avatar: u.mlbb_avatar, level: u.mlbb_level, verified: u.mlbb_verified,
+    favoriteHero: u.favorite_hero || null,
     since: u.created_at,
     season: { number: s.number, rating, mvp: sc?.mvp_count || 0, place }, mvpTotal: d.mvpTotal, lobby: lb || null,
     customs: { games: d.games, decided: d.decided, wins: d.wins, losses: d.decided - d.wins, wr: d.decided ? r1(d.wins / d.decided * 100) : null, best },
@@ -484,8 +862,15 @@ app.post('/api/profile', auth, h(async (req, res) => {
        mlbb_name = case when users.mlbb_verified and users.mlbb_id = $4 and users.mlbb_zone = $5 then coalesce(nullif($3, ''), users.mlbb_name) else users.mlbb_name end,
        mlbb_id = $4, mlbb_zone = $5`, [req.tg.id, req.tg.username || null, nick, mlbbId, mlbbZone]);
   if (typeof req.body.bio === 'string') await pool.query("update users set bio = nullif($2, '') where telegram_user_id = $1", [req.tg.id, req.body.bio.trim().slice(0, 60)]);
+  if (typeof req.body.favoriteHero === 'string') await pool.query("update users set favorite_hero = nullif($2, '') where telegram_user_id = $1", [req.tg.id, req.body.favoriteHero.trim().slice(0, 40)]);
   boardCache.at = 0; lobbyCache = null;
   res.json({ ok: true, profile: await fullProfile(req.tg.id, true) });
+}));
+app.post('/api/profile/favorite', auth, h(async (req, res) => {
+  const hero = String(req.body.hero || '').trim().slice(0, 40);
+  await pool.query("insert into users (telegram_user_id, favorite_hero) values ($1, nullif($2, '')) on conflict (telegram_user_id) do update set favorite_hero = nullif($2, '')", [req.tg.id, hero]);
+  boardCache.at = 0; lobbyCache = null;
+  res.json({ ok: true, favoriteHero: hero || null, profile: await fullProfile(req.tg.id, true) });
 }));
 // Профиль любого игрока. ID и Zone видят только владелец профиля и персонал.
 app.get('/api/profile/:uid', auth, h(async (req, res) => {
@@ -644,6 +1029,19 @@ app.get('/api/meta', pub, auth, h(async (req, res) => {
   });
 }));
 
+let heroCatalogCache = null;
+app.get('/api/heroes', pub, auth, h(async (req, res) => {
+  if (!heroCatalogCache) {
+    try {
+      heroCatalogCache = JSON.parse(fs.readFileSync(path.join(__dirname, 'hero-catalog.json'), 'utf8'));
+    } catch {
+      heroCatalogCache = SNAPSHOT_HEROES;
+    }
+  }
+  res.set('Cache-Control', 'public, max-age=3600');
+  res.json({ ok: true, heroes: heroCatalogCache });
+}));
+
 // ── Лобби ──
 // Состояние лобби одинаково для всех, кроме нескольких полей: грузим его ОДНИМ запросом раз в TTL
 // (одновременные запросы делят один промис), а персонализируем в памяти. После любой записи state(tg, true)
@@ -653,11 +1051,22 @@ let lobbyCache = null;
 async function loadShared() {
   const { rows: [r] } = await pool.query(
     `select
-       (select coalesce(json_agg(json_build_object('uid', r.telegram_user_id::text,
-          'name', coalesce(u.mlbb_name, u.nick, r.telegram_username), 'username', r.telegram_username,
-          'team', r.team, 'role', r.role, 'confirmed', r.confirmed) order by r.id), '[]'::json)
-        from role_assignments r left join users u on u.telegram_user_id = r.telegram_user_id where r.lobby_id = 1) as players,
-       (select row_to_json(x) from (select starts_at, room_code, title, locked from lobbies where id = 1) x) as lobby`);
+       (select coalesce(json_agg(json_build_object(
+          'uid', r.telegram_user_id::text,
+          'name', coalesce(u.mlbb_name, u.nick, r.telegram_username),
+          'username', r.telegram_username,
+          'team', r.team,
+          'role', r.role,
+          'confirmed', r.confirmed,
+          'favoriteHero', u.favorite_hero,
+          'seasonMvp', coalesce(sc.mvp_count, 0)
+        ) order by r.id), '[]'::json)
+        from role_assignments r
+        left join users u on u.telegram_user_id = r.telegram_user_id
+        left join season_scores sc on sc.telegram_user_id = r.telegram_user_id and sc.season_id = (select id from seasons where ends_at > now() order by number desc limit 1)
+        where r.lobby_id = 1) as players,
+       (select row_to_json(x) from (select starts_at, room_code, title, locked from lobbies where id = 1) x) as lobby,
+       (select coalesce(max(mvp_count), 0)::int from season_scores where season_id = (select id from seasons where ends_at > now() order by number desc limit 1)) as top_season_mvp`);
   return r;
 }
 function cachedLobby() {
@@ -672,13 +1081,29 @@ function cachedLobby() {
 // Состояние лобби с учётом того, кто спрашивает: роль и права персонала, код комнаты видят только игроки и персонал.
 async function state(tg, fresh = false) {
   if (fresh) lobbyCache = null;
-  const { players, lobby: l } = await cachedLobby();
+  const shared = await cachedLobby();
+  const rawPlayers = shared?.players || [];
+  const topSeasonMvp = Number(shared?.top_season_mvp || 0);
+  const maxLobbyMvp = Math.max(0, ...rawPlayers.map(p => Number(p.seasonMvp || 0)));
+  const highestMvp = Math.max(topSeasonMvp, maxLobbyMvp);
+
+  const players = rawPlayers.map(p => {
+    const mvp = Number(p.seasonMvp || 0);
+    const isTopMvp = mvp > 0 && (mvp >= highestMvp || mvp === maxLobbyMvp);
+    return {
+      ...p,
+      seasonMvp: mvp,
+      isTopMvp
+    };
+  });
+
   const uid = String(tg.id), role = roleOf(tg), me = players.find(p => p.uid === uid) || null;
   return {
     players, count: players.length, me, mvpRp: MVP_RP,
+    topSeasonMvp: highestMvp,
     role, perms: permsOf(tg), admin: can(tg, 'reset'), // admin: может завершать матч
-    title: l?.title || '', startsAt: l?.starts_at ? new Date(l.starts_at) : null, locked: !!l?.locked,
-    roomCode: me || role ? l?.room_code || null : null,
+    title: shared?.lobby?.title || '', startsAt: shared?.lobby?.starts_at ? new Date(shared.lobby.starts_at) : null, locked: !!shared?.lobby?.locked,
+    roomCode: me || role ? shared?.lobby?.room_code || null : null,
   };
 }
 
@@ -744,21 +1169,19 @@ app.post('/api/admin/finish', auth, need('reset'), h(async (req, res) => {
   res.json({ ok: true, ...(await state(req.tg, true)), matchId });
 }));
 
-// ── OLYMP AI: драфт, чат и персональный тренер (Claude, Anthropic Messages API) ──
-// Все запросы к Claude идут только отсюда, ключ во фронтенд не попадает.
-// Переменные: ANTHROPIC_API_KEY (обязательна); ANTHROPIC_MODEL (по умолчанию claude-sonnet-5-5; умнее и дороже: claude-opus-5-5);
-// AI_EFFORT (low | medium | high: глубина рассуждения для всех режимов; без неё драфт и коуч = high, чат = medium);
-// AI_MAX_TOKENS (потолок ответа вместе с рассуждением, по умолчанию 4000); AI_DAILY (вопросов в сутки на игрока, по умолчанию 40).
-// Без пакета @anthropic-ai/sdk или без ключа раздел отвечает «ai_off», остальное приложение работает как раньше.
-const Anthropic = await import('@anthropic-ai/sdk').then(m => m.default).catch(() => null);
-const AI_KEY = process.env.ANTHROPIC_API_KEY, AI_MODEL = process.env.ANTHROPIC_MODEL || 'claude-sonnet-5-5';
-const AI_ON = !!(Anthropic && AI_KEY);
-if (!AI_ON) console.warn('[ai] отключён:', !Anthropic ? 'не установлен пакет @anthropic-ai/sdk (npm install)' : 'нет ANTHROPIC_API_KEY');
-// maxRetries: 0, чтобы платные запросы не повторялись сами при сетевом сбое. Таймаут больше прежнего: Claude думает перед ответом.
-const aiClient = AI_ON ? new Anthropic({ apiKey: AI_KEY, timeout: 40000, maxRetries: 0 }) : null;
-const AI_MAX_OUT = Number(process.env.AI_MAX_TOKENS) || 4000; // в max_tokens входят и токены рассуждения
-const EFFORTS = ['low', 'medium', 'high'], AI_EFFORT_ENV = EFFORTS.includes(process.env.AI_EFFORT) ? process.env.AI_EFFORT : '';
-const aiEffort = mode => AI_EFFORT_ENV || (mode === 'chat' ? 'medium' : 'high');
+// ── OLYMP AI: драфт, чат и персональный тренер (Google Gemini 2.5 Pro via @google/genai) ──
+// Все запросы к Gemini идут только с сервера, ключ в браузер не попадает.
+// Модель: по умолчанию gemini-2.5-pro для глубокого анализа драфта и ролей, с fallback на gemini-3.8-flash.
+const GEMINI_KEY = process.env.GEMINI_API_KEY;
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-pro';
+const aiClient = GEMINI_KEY ? new GoogleGenAI({
+  apiKey: GEMINI_KEY,
+  httpOptions: {
+    headers: { 'User-Agent': 'aistudio-build' }
+  }
+}) : null;
+const AI_ON = !!aiClient;
+if (!AI_ON) console.warn('[ai] отключён: нет GEMINI_API_KEY в переменных окружения');
 const AI_DAILY = Number(process.env.AI_DAILY) || 40, AI_GAP = 3000, AI_PARALLEL = 8, AI_MSG_MAX = 800;
 const AI_MODES = ['draft', 'chat', 'coach'];
 const aiUse = new Map();  // uid → { day, n, last }: суточный лимит и пауза между вопросами
@@ -911,14 +1334,31 @@ async function aiRun(tg, job, u) {
         exclude: picked }).text;
     }
     const instructions = AI_RULES + '\n\n' + AI_MODE_TEXT[job.mode] + ctx;
-    // Адаптивное рассуждение: Claude сам решает, сколько думать; глубину задаёт effort. system идёт блоком с кэшированием (правила и мета почти не меняются).
-    const resp = await aiClient.messages.create({
-      model: AI_MODEL, max_tokens: AI_MAX_OUT, messages: input,
-      system: [{ type: 'text', text: instructions, cache_control: { type: 'ephemeral' } }],
-      thinking: { type: 'adaptive' }, output_config: { effort: aiEffort(job.mode) },
-    }, { signal: AbortSignal.timeout(42000) });
-    const answer = (resp?.content || []).filter(b => b.type === 'text').map(b => b.text).join('').trim().slice(0, 4000); // блоки thinking пропускаем
-    if (!answer) { console.error('[ai] пустой ответ', job.mode, resp?.stop_reason || ''); return fail(502, 'ai_fail'); }
+    const contents = input.map(m => ({
+      role: m.role === 'assistant' ? 'model' : 'user',
+      parts: [{ text: m.content }]
+    }));
+    let resp;
+    try {
+      resp = await aiClient.models.generateContent({
+        model: GEMINI_MODEL,
+        contents,
+        config: {
+          systemInstruction: instructions,
+        }
+      });
+    } catch (primaryErr) {
+      console.warn(`[ai] ${GEMINI_MODEL} call failed: ${primaryErr.message}, falling back to gemini-3.8-flash`);
+      resp = await aiClient.models.generateContent({
+        model: 'gemini-3.8-flash',
+        contents,
+        config: {
+          systemInstruction: instructions,
+        }
+      });
+    }
+    const answer = (resp?.text || '').trim().slice(0, 4000);
+    if (!answer) { console.error('[ai] пустой ответ', job.mode); return fail(502, 'ai_fail'); }
     u.n++;
     return { status: 200, body: { ok: true, mode: job.mode, answer, data, left: Math.max(0, AI_DAILY - u.n) } };
   } catch (e) { // в лог только код ошибки: ни текста диалога, ни секретов, ни стека
@@ -987,6 +1427,9 @@ app.get('/api/avatar/:uid', auth, h(async (req, res) => {
 const cards = new Map(), cardAt = new Map();
 setInterval(() => { const now = Date.now(); for (const [k, v] of cards) if (now - v.at > 15 * 60e3) cards.delete(k); for (const [k, t] of cardAt) if (now - t > 60e3) cardAt.delete(k); }, 60e3).unref();
 async function tgPhoto(chat_id, buf, caption, extra = {}) {
+  if (BOT_TOKEN === 'mock_bot_token') {
+    return true;
+  }
   await throttle();
   const fd = new FormData();
   fd.append('chat_id', String(chat_id)); fd.append('caption', caption);

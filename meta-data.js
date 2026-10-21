@@ -131,7 +131,24 @@ const BUILD_RU = {
 const tr = (m, k) => { if (!(k in m)) console.error('[meta-data] нет перевода:', k); return m[k] ?? k; };
 const itemsRu = list => list.map(itemRu);
 
-export const SNAPSHOT_HEROES = SNAPSHOT_HEROES_EN.map(h => ({ ...h, en: h.name, name: heroRu(h.name) }));
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __meta_dir = path.dirname(fileURLToPath(import.meta.url));
+let heroImages = {};
+try {
+  heroImages = JSON.parse(fs.readFileSync(path.join(__meta_dir, 'hero-images.json'), 'utf8'));
+} catch (e) {
+  console.warn('hero-images.json load error', e.message);
+}
+
+export const SNAPSHOT_HEROES = SNAPSHOT_HEROES_EN.map(h => ({
+  ...h,
+  en: h.name,
+  name: heroRu(h.name),
+  img: heroImages[h.name] || h.img || null
+}));
 export const BUILDS = BUILDS_EN.map(b => ({ ...b, en: b.hero, hero: heroRu(b.hero), builds: b.builds.map(x => ({
   ...x, name: tr(BUILD_RU, x.name), items: itemsRu(x.items), emblem: tr(EMBLEM_RU, x.emblem), spell: tr(SPELL_RU, x.spell) })) }));
 

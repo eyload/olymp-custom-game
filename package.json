@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "dev": "node server.js",
+    "build": "node --check server.js",
+    "lint": "node --check server.js && node --check ai/context.js",
     "start": "node server.js",
     "ai:heroes": "node ai/check-heroes.js",
     "ai:eval": "node ai/eval/run.js"
@@ -11,8 +14,9 @@
     "node": ">=18"
   },
   "dependencies": {
-    "express": "^4.19.2",
     "@anthropic-ai/sdk": "latest",
+    "@google/genai": "^2.30.0",
+    "express": "^4.19.2",
     "pg": "^8.12.0"
   }
 }

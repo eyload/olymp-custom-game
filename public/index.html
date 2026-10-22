@@ -756,7 +756,7 @@ mark {
   var el = document.getElementById('intro');
   try { if (localStorage.getItem('olympIntroSeen')) { el.remove(); return; } } catch (e) {}
   function close() {
-    try { localStorage.setItem('olympIntroSeen', '1'); } catch (e) {}
+    try { ('olympIntroSeen', '1'); } catch (e) {}
     el.remove();
   }
   addEventListener('message', function (e) { if (e.data === 'olymp-intro-done') close(); });

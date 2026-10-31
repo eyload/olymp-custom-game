@@ -1,0 +1,5987 @@
+[
+ {
+  "id": 1,
+  "name": "Аулус",
+  "en": "Aulus",
+  "img": "/assets/hero-thumbs/108.webp",
+  "tier": "S",
+  "wr": 59.8,
+  "ban": 34.9,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 10,
+   "latePower": 9,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/108.webp",
+  "artTitle": "Warrior of Ferocity"
+ },
+ {
+  "id": 2,
+  "name": "Маша",
+  "en": "Masha",
+  "img": "/assets/hero-thumbs/88.webp",
+  "tier": "S",
+  "wr": 59.7,
+  "ban": 32,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/88.webp",
+  "artTitle": "Wild-oats Fist"
+ },
+ {
+  "id": 3,
+  "name": "Рафаэль",
+  "en": "Rafaela",
+  "img": "/assets/hero-thumbs/14.webp",
+  "tier": "S",
+  "wr": 59,
+  "ban": 18.2,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 7,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/14.webp",
+  "artTitle": "Wings of Holiness"
+ },
+ {
+  "id": 4,
+  "name": "Марсель",
+  "en": "Marcel",
+  "img": "/assets/hero-thumbs/132.webp",
+  "tier": "S",
+  "wr": 58.1,
+  "ban": 33.1,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 7,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/132.webp",
+  "artTitle": "Soul Photographer"
+ },
+ {
+  "id": 5,
+  "name": "Аргус",
+  "en": "Argus",
+  "img": "/assets/hero-thumbs/45.webp",
+  "tier": "S",
+  "wr": 55.8,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/45.webp",
+  "artTitle": "Dark Angel"
+ },
+ {
+  "id": 6,
+  "name": "Минотавр",
+  "en": "Minotaur",
+  "img": "/assets/hero-thumbs/19.webp",
+  "tier": "S",
+  "wr": 55.1,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 7,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/19.webp",
+  "artTitle": "Son of Minos"
+ },
+ {
+  "id": 7,
+  "name": "Хуфра",
+  "en": "Khufra",
+  "img": "/assets/hero-thumbs/78.webp",
+  "tier": "S",
+  "wr": 54.6,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 7,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/78.webp",
+  "artTitle": "Desert Tyrant"
+ },
+ {
+  "id": 8,
+  "name": "Флорин",
+  "en": "Floryn",
+  "img": "/assets/hero-thumbs/112.webp",
+  "tier": "S",
+  "wr": 54.1,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 7,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/112.webp",
+  "artTitle": "The Budding Hope"
+ },
+ {
+  "id": 9,
+  "name": "Глу",
+  "en": "Gloo",
+  "img": "/assets/hero-thumbs/104.webp",
+  "tier": "S",
+  "wr": 54,
+  "ban": 38.9,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/104.webp",
+  "artTitle": "Swamp Spirits"
+ },
+ {
+  "id": 10,
+  "name": "Обсидия",
+  "en": "Obsidia",
+  "img": "/assets/hero-thumbs/130.webp",
+  "tier": "S",
+  "wr": 53.8,
+  "ban": 16.1,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 6,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/130.webp",
+  "artTitle": "Sovereign of Dark's End"
+ },
+ {
+  "id": 11,
+  "name": "Кармилла",
+  "en": "Carmilla",
+  "img": "/assets/hero-thumbs/92.webp",
+  "tier": "S",
+  "wr": 53.8,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 7,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/92.webp",
+  "artTitle": "Shadow of Twilight"
+ },
+ {
+  "id": 12,
+  "name": "Хирара",
+  "en": "Hirara",
+  "img": "/assets/hero-thumbs/133.webp",
+  "tier": "S",
+  "wr": 53.4,
+  "ban": 68.2,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 10,
+   "latePower": 9,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/133.webp",
+  "artTitle": "Fallen Scarlet"
+ },
+ {
+  "id": 13,
+  "name": "Пополь и Купа",
+  "en": "Popol and Kupa",
+  "img": "/assets/hero-thumbs/94.webp",
+  "tier": "A",
+  "wr": 54.4,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 6,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/94.webp",
+  "artTitle": "Icefield Companions"
+ },
+ {
+  "id": 14,
+  "name": "Лолита",
+  "en": "Lolita",
+  "img": "/assets/hero-thumbs/20.webp",
+  "tier": "A",
+  "wr": 54,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 7,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/20.webp",
+  "artTitle": "Steel Elf"
+ },
+ {
+  "id": 15,
+  "name": "Валир",
+  "en": "Valir",
+  "img": "/assets/hero-thumbs/57.webp",
+  "tier": "A",
+  "wr": 53.5,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 10,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/57.webp",
+  "artTitle": "Son of Flames"
+ },
+ {
+  "id": 16,
+  "name": "Дигги",
+  "en": "Diggie",
+  "img": "/assets/hero-thumbs/48.webp",
+  "tier": "A",
+  "wr": 53.4,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 7,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/48.webp",
+  "artTitle": "Timekeeper"
+ },
+ {
+  "id": 17,
+  "name": "Бруно",
+  "en": "Bruno",
+  "img": "/assets/hero-thumbs/12.webp",
+  "tier": "A",
+  "wr": 53.1,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 6,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/12.webp",
+  "artTitle": "The Protector"
+ },
+ {
+  "id": 18,
+  "name": "Горд",
+  "en": "Gord",
+  "img": "/assets/hero-thumbs/23.webp",
+  "tier": "A",
+  "wr": 52.9,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 10,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/23.webp",
+  "artTitle": "Professor of the Mystics"
+ },
+ {
+  "id": 19,
+  "name": "Лукас",
+  "en": "Lukas",
+  "img": "/assets/hero-thumbs/127.webp",
+  "tier": "A",
+  "wr": 52.8,
+  "ban": 35.6,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 6,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/127.webp",
+  "artTitle": "Beast of Light"
+ },
+ {
+  "id": 20,
+  "name": "Эстес",
+  "en": "Estes",
+  "img": "/assets/hero-thumbs/34.webp",
+  "tier": "A",
+  "wr": 52.8,
+  "ban": 40.6,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 7,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/34.webp",
+  "artTitle": "Moon Elf King"
+ },
+ {
+  "id": 21,
+  "name": "Эдит",
+  "en": "Edith",
+  "img": "/assets/hero-thumbs/111.webp",
+  "tier": "A",
+  "wr": 52.7,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 7,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/111.webp",
+  "artTitle": "Ancient Guard"
+ },
+ {
+  "id": 22,
+  "name": "Бенедетта",
+  "en": "Benedetta",
+  "img": "/assets/hero-thumbs/97.webp",
+  "tier": "A",
+  "wr": 52.5,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/97.webp",
+  "artTitle": "Shadow Ranger"
+ },
+ {
+  "id": 23,
+  "name": "Иритель",
+  "en": "Irithel",
+  "img": "/assets/hero-thumbs/43.webp",
+  "tier": "A",
+  "wr": 52.4,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 6,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/43.webp",
+  "artTitle": "Jungle Heart"
+ },
+ {
+  "id": 24,
+  "name": "Линг",
+  "en": "Ling",
+  "img": "/assets/hero-thumbs/84.webp",
+  "tier": "A",
+  "wr": 52.4,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 10,
+   "latePower": 9,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/84.webp",
+  "artTitle": "Cyan Finch"
+ },
+ {
+  "id": 25,
+  "name": "Заск",
+  "en": "Zhask",
+  "img": "/assets/hero-thumbs/50.webp",
+  "tier": "A",
+  "wr": 52.2,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 10,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/50.webp",
+  "artTitle": "The King of Swarms"
+ },
+ {
+  "id": 26,
+  "name": "Сан",
+  "en": "Sun",
+  "img": "/assets/hero-thumbs/27.webp",
+  "tier": "A",
+  "wr": 52.2,
+  "ban": 21.4,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/27.webp",
+  "artTitle": "Monkey King"
+ },
+ {
+  "id": 27,
+  "name": "Белерик",
+  "en": "Belerick",
+  "img": "/assets/hero-thumbs/70.webp",
+  "tier": "A",
+  "wr": 52.1,
+  "ban": 56.4,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 7,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/70.webp",
+  "artTitle": "Guard of Nature"
+ },
+ {
+  "id": 28,
+  "name": "Ханаби",
+  "en": "Hanabi",
+  "img": "/assets/hero-thumbs/60.webp",
+  "tier": "A",
+  "wr": 52.1,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 6,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/60.webp",
+  "artTitle": "Scarlet Flower"
+ },
+ {
+  "id": 29,
+  "name": "Бартс",
+  "en": "Barats",
+  "img": "/assets/hero-thumbs/99.webp",
+  "tier": "A",
+  "wr": 52,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 10,
+   "latePower": 9,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/99.webp",
+  "artTitle": "Dino Rider"
+ },
+ {
+  "id": 30,
+  "name": "Кагура",
+  "en": "Kagura",
+  "img": "/assets/hero-thumbs/25.webp",
+  "tier": "A",
+  "wr": 51.9,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 10,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/25.webp",
+  "artTitle": "Onmyouji Master"
+ },
+ {
+  "id": 31,
+  "name": "Атлас",
+  "en": "Atlas",
+  "img": "/assets/hero-thumbs/93.webp",
+  "tier": "A",
+  "wr": 51.9,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 7,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/93.webp",
+  "artTitle": "Ocean Gladiator"
+ },
+ {
+  "id": 32,
+  "name": "Эйдора",
+  "en": "Eudora",
+  "img": "/assets/hero-thumbs/15.webp",
+  "tier": "A",
+  "wr": 51.4,
+  "ban": 58.9,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 10,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/15.webp",
+  "artTitle": "Lightning Weaver"
+ },
+ {
+  "id": 33,
+  "name": "Кадита",
+  "en": "Kadita",
+  "img": "/assets/hero-thumbs/75.webp",
+  "tier": "A",
+  "wr": 51.4,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 10,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/75.webp",
+  "artTitle": "Ocean Goddess"
+ },
+ {
+  "id": 34,
+  "name": "Гвиневра",
+  "en": "Guinevere",
+  "img": "/assets/hero-thumbs/80.webp",
+  "tier": "A",
+  "wr": 51.4,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/80.webp",
+  "artTitle": "Ms. Violet"
+ },
+ {
+  "id": 35,
+  "name": "Минситтар",
+  "en": "Minsitthar",
+  "img": "/assets/hero-thumbs/74.webp",
+  "tier": "A",
+  "wr": 51.4,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 7,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/74.webp",
+  "artTitle": "Courageous Warrior"
+ },
+ {
+  "id": 36,
+  "name": "Цзэтянь",
+  "en": "Zetian",
+  "img": "/assets/hero-thumbs/129.webp",
+  "tier": "A",
+  "wr": 50.9,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 10,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/129.webp",
+  "artTitle": "Celestial Empress"
+ },
+ {
+  "id": 37,
+  "name": "Ив",
+  "en": "Yve",
+  "img": "/assets/hero-thumbs/101.webp",
+  "tier": "B",
+  "wr": 51.7,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/101.webp",
+  "artTitle": "Astrowarden"
+ },
+ {
+  "id": 38,
+  "name": "Циклоп",
+  "en": "Cyclops",
+  "img": "/assets/hero-thumbs/33.webp",
+  "tier": "B",
+  "wr": 51.4,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/33.webp",
+  "artTitle": "Starsoul Magician"
+ },
+ {
+  "id": 39,
+  "name": "Натан",
+  "en": "Natan",
+  "img": "/assets/hero-thumbs/107.webp",
+  "tier": "B",
+  "wr": 51.3,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 5,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/107.webp",
+  "artTitle": "Spacetime Walker"
+ },
+ {
+  "id": 40,
+  "name": "Фарамис",
+  "en": "Faramis",
+  "img": "/assets/hero-thumbs/76.webp",
+  "tier": "B",
+  "wr": 51.3,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/76.webp",
+  "artTitle": "Soul Binder"
+ },
+ {
+  "id": 41,
+  "name": "Фредрин",
+  "en": "Fredrinn",
+  "img": "/assets/hero-thumbs/117.webp",
+  "tier": "B",
+  "wr": 51.3,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 6,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/117.webp",
+  "artTitle": "Rogue Appraiser"
+ },
+ {
+  "id": 42,
+  "name": "Беатрис",
+  "en": "Beatrix",
+  "img": "/assets/hero-thumbs/105.webp",
+  "tier": "B",
+  "wr": 51.3,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 5,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/105.webp",
+  "artTitle": "Dawnbreak Soldier"
+ },
+ {
+  "id": 43,
+  "name": "Бэйн",
+  "en": "Bane",
+  "img": "/assets/hero-thumbs/11.webp",
+  "tier": "B",
+  "wr": 51.1,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 6,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/11.webp",
+  "artTitle": "Frozen King"
+ },
+ {
+  "id": 44,
+  "name": "Сесилион",
+  "en": "Cecilion",
+  "img": "/assets/hero-thumbs/91.webp",
+  "tier": "B",
+  "wr": 51,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/91.webp",
+  "artTitle": "Embrace of Night"
+ },
+ {
+  "id": 45,
+  "name": "Наталья",
+  "en": "Natalia",
+  "img": "/assets/hero-thumbs/24.webp",
+  "tier": "B",
+  "wr": 51,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 6,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/24.webp",
+  "artTitle": "Bright Claw"
+ },
+ {
+  "id": 46,
+  "name": "Алиса",
+  "en": "Alice",
+  "img": "/assets/hero-thumbs/4.webp",
+  "tier": "B",
+  "wr": 50.9,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/4.webp",
+  "artTitle": "Queen of Blood"
+ },
+ {
+  "id": 47,
+  "name": "Сильвана",
+  "en": "Silvanna",
+  "img": "/assets/hero-thumbs/90.webp",
+  "tier": "B",
+  "wr": 50.9,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/90.webp",
+  "artTitle": "Imperial Knightess"
+ },
+ {
+  "id": 48,
+  "name": "Броуди",
+  "en": "Brody",
+  "img": "/assets/hero-thumbs/100.webp",
+  "tier": "B",
+  "wr": 50.8,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 5,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/100.webp",
+  "artTitle": "The Lone Star"
+ },
+ {
+  "id": 49,
+  "name": "Тэризла",
+  "en": "Terizla",
+  "img": "/assets/hero-thumbs/82.webp",
+  "tier": "B",
+  "wr": 50.8,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/82.webp",
+  "artTitle": "Executioner"
+ },
+ {
+  "id": 50,
+  "name": "Клинт",
+  "en": "Clint",
+  "img": "/assets/hero-thumbs/13.webp",
+  "tier": "B",
+  "wr": 50.8,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 5,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/13.webp",
+  "artTitle": "West Justice"
+ },
+ {
+  "id": 51,
+  "name": "Халид",
+  "en": "Khaleed",
+  "img": "/assets/hero-thumbs/98.webp",
+  "tier": "B",
+  "wr": 50.8,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/98.webp",
+  "artTitle": "Desert Scimitar"
+ },
+ {
+  "id": 52,
+  "name": "Леоморд",
+  "en": "Leomord",
+  "img": "/assets/hero-thumbs/67.webp",
+  "tier": "B",
+  "wr": 50.6,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/67.webp",
+  "artTitle": "Sworn Sword"
+ },
+ {
+  "id": 53,
+  "name": "Акай",
+  "en": "Akai",
+  "img": "/assets/hero-thumbs/9.webp",
+  "tier": "B",
+  "wr": 50.5,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 6,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/9.webp",
+  "artTitle": "Panda Warrior"
+ },
+ {
+  "id": 54,
+  "name": "Алдос",
+  "en": "Aldous",
+  "img": "/assets/hero-thumbs/64.webp",
+  "tier": "B",
+  "wr": 50.5,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/64.webp",
+  "artTitle": "Soul Contractor"
+ },
+ {
+  "id": 55,
+  "name": "Хильда",
+  "en": "Hilda",
+  "img": "/assets/hero-thumbs/35.webp",
+  "tier": "B",
+  "wr": 50.5,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/35.webp",
+  "artTitle": "Power of Megalith"
+ },
+ {
+  "id": 56,
+  "name": "Пакито",
+  "en": "Paquito",
+  "img": "/assets/hero-thumbs/103.webp",
+  "tier": "B",
+  "wr": 50.4,
+  "ban": 38.7,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/103.webp",
+  "artTitle": "The Heavenly Fist"
+ },
+ {
+  "id": 57,
+  "name": "Чжусинь",
+  "en": "Zhuxin",
+  "img": "/assets/hero-thumbs/125.webp",
+  "tier": "B",
+  "wr": 50.4,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/125.webp",
+  "artTitle": "Beacon of Spirits"
+ },
+ {
+  "id": 58,
+  "name": "Баданг",
+  "en": "Badang",
+  "img": "/assets/hero-thumbs/77.webp",
+  "tier": "B",
+  "wr": 50.2,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/77.webp",
+  "artTitle": "Tribal Warrior"
+ },
+ {
+  "id": 59,
+  "name": "Москов",
+  "en": "Moskov",
+  "img": "/assets/hero-thumbs/31.webp",
+  "tier": "B",
+  "wr": 50,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 5,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/31.webp",
+  "artTitle": "Spear of Quiescence"
+ },
+ {
+  "id": 60,
+  "name": "Джулиан",
+  "en": "Julian",
+  "img": "/assets/hero-thumbs/116.webp",
+  "tier": "B",
+  "wr": 49.9,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/116.webp",
+  "artTitle": "Scarlet Raven"
+ },
+ {
+  "id": 61,
+  "name": "Иксия",
+  "en": "Ixia",
+  "img": "/assets/hero-thumbs/121.webp",
+  "tier": "B",
+  "wr": 49.9,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 5,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/121.webp",
+  "artTitle": "Arclight Outlaw"
+ },
+ {
+  "id": 62,
+  "name": "Вэйл",
+  "en": "Vale",
+  "img": "/assets/hero-thumbs/66.webp",
+  "tier": "B",
+  "wr": 49.9,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/66.webp",
+  "artTitle": "Windtalker"
+ },
+ {
+  "id": 63,
+  "name": "Ксавьер",
+  "en": "Xavier",
+  "img": "/assets/hero-thumbs/115.webp",
+  "tier": "B",
+  "wr": 49.8,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/115.webp",
+  "artTitle": "Defier of Light"
+ },
+ {
+  "id": 64,
+  "name": "Эймон",
+  "en": "Aamon",
+  "img": "/assets/hero-thumbs/109.webp",
+  "tier": "B",
+  "wr": 49.8,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/109.webp",
+  "artTitle": "Duke of Shards"
+ },
+ {
+  "id": 65,
+  "name": "Сора",
+  "en": "Sora",
+  "img": "/assets/hero-thumbs/131.webp",
+  "tier": "B",
+  "wr": 49.7,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 6,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/131.webp",
+  "artTitle": "Shifting Cloud"
+ },
+ {
+  "id": 66,
+  "name": "Икс.Борг",
+  "en": "X.Borg",
+  "img": "/assets/hero-thumbs/83.webp",
+  "tier": "B",
+  "wr": 49.7,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/83.webp",
+  "artTitle": "Firaga Armor"
+ },
+ {
+  "id": 67,
+  "name": "Ли Сун-Син",
+  "en": "Yi Sun-shin",
+  "img": "/assets/hero-thumbs/30.webp",
+  "tier": "B",
+  "wr": 49.7,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/30.webp",
+  "artTitle": "Paenlong Legend"
+ },
+ {
+  "id": 68,
+  "name": "Новария",
+  "en": "Novaria",
+  "img": "/assets/hero-thumbs/119.webp",
+  "tier": "B",
+  "wr": 49.6,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/119.webp",
+  "artTitle": "Star Rebel"
+ },
+ {
+  "id": 69,
+  "name": "Су Ё",
+  "en": "Suyou",
+  "img": "/assets/hero-thumbs/126.webp",
+  "tier": "B",
+  "wr": 49.6,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/126.webp",
+  "artTitle": "Mask of the Immortal"
+ },
+ {
+  "id": 70,
+  "name": "Сабер",
+  "en": "Saber",
+  "img": "/assets/hero-thumbs/3.webp",
+  "tier": "B",
+  "wr": 49.6,
+  "ban": 22.1,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/3.webp",
+  "artTitle": "Wandering Sword"
+ },
+ {
+  "id": 71,
+  "name": "Кайя",
+  "en": "Kaja",
+  "img": "/assets/hero-thumbs/62.webp",
+  "tier": "B",
+  "wr": 49.6,
+  "ban": 18.1,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 6,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/62.webp",
+  "artTitle": "Nazar King"
+ },
+ {
+  "id": 72,
+  "name": "Руби",
+  "en": "Ruby",
+  "img": "/assets/hero-thumbs/29.webp",
+  "tier": "B",
+  "wr": 49.6,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/29.webp",
+  "artTitle": "Little Red Hood"
+ },
+ {
+  "id": 73,
+  "name": "Лилия",
+  "en": "Lylia",
+  "img": "/assets/hero-thumbs/86.webp",
+  "tier": "B",
+  "wr": 49.6,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/86.webp",
+  "artTitle": "Little Witch"
+ },
+ {
+  "id": 74,
+  "name": "Ханзо",
+  "en": "Hanzo",
+  "img": "/assets/hero-thumbs/69.webp",
+  "tier": "B",
+  "wr": 49.5,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/69.webp",
+  "artTitle": "Akuma Ninja"
+ },
+ {
+  "id": 75,
+  "name": "Мия",
+  "en": "Miya",
+  "img": "/assets/hero-thumbs/1.webp",
+  "tier": "B",
+  "wr": 49.5,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 5,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/1.webp",
+  "artTitle": "Moonlight Archer"
+ },
+ {
+  "id": 76,
+  "name": "Одетта",
+  "en": "Odette",
+  "img": "/assets/hero-thumbs/46.webp",
+  "tier": "B",
+  "wr": 49.5,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/46.webp",
+  "artTitle": "Swan Princess"
+ },
+ {
+  "id": 77,
+  "name": "Вексана",
+  "en": "Vexana",
+  "img": "/assets/hero-thumbs/38.webp",
+  "tier": "B",
+  "wr": 49.4,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/38.webp",
+  "artTitle": "Shimmer of Hope"
+ },
+ {
+  "id": 78,
+  "name": "Ангела",
+  "en": "Angela",
+  "img": "/assets/hero-thumbs/55.webp",
+  "tier": "B",
+  "wr": 49.3,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 6,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/55.webp",
+  "artTitle": "Bunnylove"
+ },
+ {
+  "id": 79,
+  "name": "Клауд",
+  "en": "Claude",
+  "img": "/assets/hero-thumbs/65.webp",
+  "tier": "B",
+  "wr": 49.2,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 5,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/65.webp",
+  "artTitle": "Master Thief"
+ },
+ {
+  "id": 80,
+  "name": "Селена",
+  "en": "Selena",
+  "img": "/assets/hero-thumbs/63.webp",
+  "tier": "B",
+  "wr": 49.1,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 6,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/63.webp",
+  "artTitle": "Abyssal Witch"
+ },
+ {
+  "id": 81,
+  "name": "Лейла",
+  "en": "Layla",
+  "img": "/assets/hero-thumbs/18.webp",
+  "tier": "B",
+  "wr": 49.1,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 5,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/18.webp",
+  "artTitle": "Energy Gunner"
+ },
+ {
+  "id": 82,
+  "name": "Нолан",
+  "en": "Nolan",
+  "img": "/assets/hero-thumbs/122.webp",
+  "tier": "B",
+  "wr": 48.9,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/122.webp",
+  "artTitle": "Cosmic Wayfinder"
+ },
+ {
+  "id": 83,
+  "name": "Лесли",
+  "en": "Lesley",
+  "img": "/assets/hero-thumbs/53.webp",
+  "tier": "B",
+  "wr": 48.2,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 5,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/53.webp",
+  "artTitle": "Deadly Sniper"
+ },
+ {
+  "id": 84,
+  "name": "Чичи",
+  "en": "Cici",
+  "img": "/assets/hero-thumbs/123.webp",
+  "tier": "C",
+  "wr": 49.2,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/123.webp",
+  "artTitle": "Buoyant Performer"
+ },
+ {
+  "id": 85,
+  "name": "Уранус",
+  "en": "Uranus",
+  "img": "/assets/hero-thumbs/59.webp",
+  "tier": "C",
+  "wr": 49.2,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/59.webp",
+  "artTitle": "Aethereal Defender"
+ },
+ {
+  "id": 86,
+  "name": "Чонг",
+  "en": "Yu Zhong",
+  "img": "/assets/hero-thumbs/95.webp",
+  "tier": "C",
+  "wr": 49.1,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/95.webp",
+  "artTitle": "Black Dragon"
+ },
+ {
+  "id": 87,
+  "name": "Джой",
+  "en": "Joy",
+  "img": "/assets/hero-thumbs/118.webp",
+  "tier": "C",
+  "wr": 48.9,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/118.webp",
+  "artTitle": "Flash of Miracle"
+ },
+ {
+  "id": 88,
+  "name": "Инь",
+  "en": "Yin",
+  "img": "/assets/hero-thumbs/113.webp",
+  "tier": "C",
+  "wr": 48.7,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/113.webp",
+  "artTitle": "Martial Genius"
+ },
+ {
+  "id": 89,
+  "name": "Роджер",
+  "en": "Roger",
+  "img": "/assets/hero-thumbs/39.webp",
+  "tier": "C",
+  "wr": 48.7,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/39.webp",
+  "artTitle": "Dire Wolf Hunter"
+ },
+ {
+  "id": 90,
+  "name": "Кимми",
+  "en": "Kimmy",
+  "img": "/assets/hero-thumbs/71.webp",
+  "tier": "C",
+  "wr": 48.7,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 5,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/71.webp",
+  "artTitle": "Hoverjet Outrider"
+ },
+ {
+  "id": 91,
+  "name": "Хилос",
+  "en": "Hylos",
+  "img": "/assets/hero-thumbs/49.webp",
+  "tier": "C",
+  "wr": 48.7,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 6,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/49.webp",
+  "artTitle": "Grand Warden"
+ },
+ {
+  "id": 92,
+  "name": "Лапу-Лапу",
+  "en": "Lapu-Lapu",
+  "img": "/assets/hero-thumbs/37.webp",
+  "tier": "C",
+  "wr": 48.6,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/37.webp",
+  "artTitle": "Courageous Blade"
+ },
+ {
+  "id": 93,
+  "name": "Тамуз",
+  "en": "Thamuz",
+  "img": "/assets/hero-thumbs/72.webp",
+  "tier": "C",
+  "wr": 48.6,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/72.webp",
+  "artTitle": "Lord Lava"
+ },
+ {
+  "id": 94,
+  "name": "Кэрри",
+  "en": "Karrie",
+  "img": "/assets/hero-thumbs/40.webp",
+  "tier": "C",
+  "wr": 48.5,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 5,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/40.webp",
+  "artTitle": "Lost Star"
+ },
+ {
+  "id": 95,
+  "name": "Мелисса",
+  "en": "Melissa",
+  "img": "/assets/hero-thumbs/114.webp",
+  "tier": "C",
+  "wr": 48.5,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 5,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/114.webp",
+  "artTitle": "Cursed Needle"
+ },
+ {
+  "id": 96,
+  "name": "Люнокс",
+  "en": "Lunox",
+  "img": "/assets/hero-thumbs/68.webp",
+  "tier": "C",
+  "wr": 48.5,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/68.webp",
+  "artTitle": "Twilight Goddess"
+ },
+ {
+  "id": 97,
+  "name": "Аврора",
+  "en": "Aurora",
+  "img": "/assets/hero-thumbs/36.webp",
+  "tier": "C",
+  "wr": 48.5,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/36.webp",
+  "artTitle": "Maiden of the Glacier"
+ },
+ {
+  "id": 98,
+  "name": "Фовиус",
+  "en": "Phoveus",
+  "img": "/assets/hero-thumbs/106.webp",
+  "tier": "C",
+  "wr": 48.3,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/106.webp",
+  "artTitle": "Chains of Sin"
+ },
+ {
+  "id": 99,
+  "name": "Ванван",
+  "en": "Wanwan",
+  "img": "/assets/hero-thumbs/89.webp",
+  "tier": "C",
+  "wr": 48.2,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 5,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/89.webp",
+  "artTitle": "Agile Tiger"
+ },
+ {
+  "id": 100,
+  "name": "Дариус",
+  "en": "Dyrroth",
+  "img": "/assets/hero-thumbs/85.webp",
+  "tier": "C",
+  "wr": 48.2,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/85.webp",
+  "artTitle": "Prince of the Abyss"
+ },
+ {
+  "id": 101,
+  "name": "Джонсон",
+  "en": "Johnson",
+  "img": "/assets/hero-thumbs/32.webp",
+  "tier": "C",
+  "wr": 48.2,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 6,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/32.webp",
+  "artTitle": "Wild Engine"
+ },
+ {
+  "id": 102,
+  "name": "Хаябуса",
+  "en": "Hayabusa",
+  "img": "/assets/hero-thumbs/21.webp",
+  "tier": "C",
+  "wr": 48.1,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/21.webp",
+  "artTitle": "Crimson Shadow"
+ },
+ {
+  "id": 103,
+  "name": "Госсен",
+  "en": "Gusion",
+  "img": "/assets/hero-thumbs/56.webp",
+  "tier": "C",
+  "wr": 48,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/56.webp",
+  "artTitle": "Holy Blade"
+ },
+ {
+  "id": 104,
+  "name": "Фрейя",
+  "en": "Freya",
+  "img": "/assets/hero-thumbs/22.webp",
+  "tier": "C",
+  "wr": 48,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/22.webp",
+  "artTitle": "Valkyrie"
+ },
+ {
+  "id": 105,
+  "name": "Арлотт",
+  "en": "Arlott",
+  "img": "/assets/hero-thumbs/120.webp",
+  "tier": "C",
+  "wr": 48,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/120.webp",
+  "artTitle": "Lone Lancer"
+ },
+ {
+  "id": 106,
+  "name": "Альфа",
+  "en": "Alpha",
+  "img": "/assets/hero-thumbs/28.webp",
+  "tier": "C",
+  "wr": 47.9,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/28.webp",
+  "artTitle": "Blade of Enmity"
+ },
+ {
+  "id": 107,
+  "name": "Чан'Э",
+  "en": "Chang'e",
+  "img": "/assets/hero-thumbs/61.webp",
+  "tier": "C",
+  "wr": 47.9,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/61.webp",
+  "artTitle": "Moon Palace Immortal"
+ },
+ {
+  "id": 108,
+  "name": "Ло Йи",
+  "en": "Luo Yi",
+  "img": "/assets/hero-thumbs/96.webp",
+  "tier": "C",
+  "wr": 47.8,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/96.webp",
+  "artTitle": "Yin-yang Geomancer"
+ },
+ {
+  "id": 109,
+  "name": "Харли",
+  "en": "Harley",
+  "img": "/assets/hero-thumbs/42.webp",
+  "tier": "C",
+  "wr": 47.6,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/42.webp",
+  "artTitle": "Mage Genius"
+ },
+ {
+  "id": 110,
+  "name": "Карина",
+  "en": "Karina",
+  "img": "/assets/hero-thumbs/8.webp",
+  "tier": "C",
+  "wr": 47.6,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/8.webp",
+  "artTitle": "Shadow Blade"
+ },
+ {
+  "id": 111,
+  "name": "Кусака",
+  "en": "Jawhead",
+  "img": "/assets/hero-thumbs/54.webp",
+  "tier": "C",
+  "wr": 47.6,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/54.webp",
+  "artTitle": "Steel Sweetheart"
+ },
+ {
+  "id": 112,
+  "name": "Алукард",
+  "en": "Alucard",
+  "img": "/assets/hero-thumbs/7.webp",
+  "tier": "C",
+  "wr": 47.5,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/7.webp",
+  "artTitle": "Demon Hunter"
+ },
+ {
+  "id": 113,
+  "name": "Нана",
+  "en": "Nana",
+  "img": "/assets/hero-thumbs/5.webp",
+  "tier": "C",
+  "wr": 47.3,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/5.webp",
+  "artTitle": "Sweet Leonin"
+ },
+ {
+  "id": 114,
+  "name": "Мартис",
+  "en": "Martis",
+  "img": "/assets/hero-thumbs/58.webp",
+  "tier": "C",
+  "wr": 47.3,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/58.webp",
+  "artTitle": "Ashura King"
+ },
+ {
+  "id": 115,
+  "name": "Фаша",
+  "en": "Pharsa",
+  "img": "/assets/hero-thumbs/52.webp",
+  "tier": "C",
+  "wr": 47.2,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/52.webp",
+  "artTitle": "Wings of Vengeance"
+ },
+ {
+  "id": 116,
+  "name": "Эсмеральда",
+  "en": "Esmeralda",
+  "img": "/assets/hero-thumbs/81.webp",
+  "tier": "C",
+  "wr": 47.2,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/81.webp",
+  "artTitle": "Astrologer"
+ },
+ {
+  "id": 117,
+  "name": "Хелкарт",
+  "en": "Helcurt",
+  "img": "/assets/hero-thumbs/51.webp",
+  "tier": "C",
+  "wr": 46.9,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/51.webp",
+  "artTitle": "Shadowbringer"
+ },
+ {
+  "id": 118,
+  "name": "Чип",
+  "en": "Chip",
+  "img": "/assets/hero-thumbs/124.webp",
+  "tier": "D",
+  "wr": 47.3,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 6,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/124.webp",
+  "artTitle": "Phase Technician"
+ },
+ {
+  "id": 119,
+  "name": "Баксий",
+  "en": "Baxia",
+  "img": "/assets/hero-thumbs/87.webp",
+  "tier": "D",
+  "wr": 47.1,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/87.webp",
+  "artTitle": "Mystic Tortoise"
+ },
+ {
+  "id": 120,
+  "name": "Грок",
+  "en": "Grock",
+  "img": "/assets/hero-thumbs/44.webp",
+  "tier": "D",
+  "wr": 46.8,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 6,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/44.webp",
+  "artTitle": "Fortress Titan"
+ },
+ {
+  "id": 121,
+  "name": "Бальмонд",
+  "en": "Balmond",
+  "img": "/assets/hero-thumbs/2.webp",
+  "tier": "D",
+  "wr": 46.3,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/2.webp",
+  "artTitle": "Bloody Beast"
+ },
+ {
+  "id": 122,
+  "name": "Харит",
+  "en": "Harith",
+  "img": "/assets/hero-thumbs/73.webp",
+  "tier": "D",
+  "wr": 46.1,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/73.webp",
+  "artTitle": "Time Traveler"
+ },
+ {
+  "id": 123,
+  "name": "Валентина",
+  "en": "Valentina",
+  "img": "/assets/hero-thumbs/110.webp",
+  "tier": "D",
+  "wr": 45.8,
+  "ban": null,
+  "lane": "mid",
+  "laneRu": "Мид",
+  "role": "Mage",
+  "roleRu": "Маг / Контроль",
+  "title": "Маг / Контроль · Мид",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 9,
+   "difficulty": 6,
+   "durability": 4,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Магический резонанс",
+    "desc": "Каждое попадание заклинанием накладывает метку, снижающую маг. защиту."
+   },
+   {
+    "type": "skill1",
+    "name": "Астральная волна",
+    "desc": "Запуск пронзающего сгустка энергии, замедляющего врагов на пути."
+   },
+   {
+    "type": "skill2",
+    "name": "Гравитационный разлом",
+    "desc": "Создание области стягивания врагов с последующим взрывом."
+   },
+   {
+    "type": "ult",
+    "name": "Апокалипсис",
+    "desc": "Массированный залп метеоритов по большой области с оглушением."
+   }
+  ],
+  "art": "/assets/hero-portraits/110.webp",
+  "artTitle": "Prophetess of the Night"
+ },
+ {
+  "id": 124,
+  "name": "Зилонг",
+  "en": "Zilong",
+  "img": "/assets/hero-thumbs/16.webp",
+  "tier": "D",
+  "wr": 45.6,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/16.webp",
+  "artTitle": "Spear of Dragon"
+ },
+ {
+  "id": 125,
+  "name": "Калеа",
+  "en": "Kalea",
+  "img": "/assets/hero-thumbs/128.webp",
+  "tier": "D",
+  "wr": 45.1,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 6,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/128.webp",
+  "artTitle": "Surging Wave"
+ },
+ {
+  "id": 126,
+  "name": "Матильда",
+  "en": "Mathilda",
+  "img": "/assets/hero-thumbs/102.webp",
+  "tier": "D",
+  "wr": 45,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 6,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/102.webp",
+  "artTitle": "Swift Plume"
+ },
+ {
+  "id": 127,
+  "name": "Чу",
+  "en": "Chou",
+  "img": "/assets/hero-thumbs/26.webp",
+  "tier": "D",
+  "wr": 44.9,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/26.webp",
+  "artTitle": "Kung Fu Boy"
+ },
+ {
+  "id": 128,
+  "name": "Гатоткача",
+  "en": "Gatotkaca",
+  "img": "/assets/hero-thumbs/41.webp",
+  "tier": "D",
+  "wr": 44.8,
+  "ban": null,
+  "lane": "exp",
+  "laneRu": "Опыт",
+  "role": "Fighter / Tank",
+  "roleRu": "Боец / Передовая",
+  "title": "Боец / Передовая · Опыт",
+  "stats": {
+   "earlyPower": 7,
+   "latePower": 8,
+   "difficulty": 6,
+   "durability": 9,
+   "offense": 7
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Неукротимая ярость",
+    "desc": "Увеличивает защиту и регенерацию здоровья при падении HP ниже 40%."
+   },
+   {
+    "type": "skill1",
+    "name": "Сокрушительный выпад",
+    "desc": "Удар по земле с оглушением первой цели и щитом от макс. здоровья."
+   },
+   {
+    "type": "skill2",
+    "name": "Вихрь стали",
+    "desc": "Круговая атака с кражей здоровья и снижением урона от врагов."
+   },
+   {
+    "type": "ult",
+    "name": "Ярость титана",
+    "desc": "Взрыв силы с иммунитетом к контролю и ускорением атаки на 8 секунд."
+   }
+  ],
+  "art": "/assets/hero-portraits/41.webp",
+  "artTitle": "Mighty Legend"
+ },
+ {
+  "id": 129,
+  "name": "Тигрил",
+  "en": "Tigreal",
+  "img": "/assets/hero-thumbs/6.webp",
+  "tier": "D",
+  "wr": 44.5,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 6,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/6.webp",
+  "artTitle": "Warrior of Dawn"
+ },
+ {
+  "id": 130,
+  "name": "Грейнджер",
+  "en": "Granger",
+  "img": "/assets/hero-thumbs/79.webp",
+  "tier": "D",
+  "wr": 43,
+  "ban": null,
+  "lane": "gold",
+  "laneRu": "Золото",
+  "role": "Marksman",
+  "roleRu": "Стрелок / Урон",
+  "title": "Стрелок / Урон · Золото",
+  "stats": {
+   "earlyPower": 5,
+   "latePower": 10,
+   "difficulty": 7,
+   "durability": 3,
+   "offense": 10
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Точный прицел",
+    "desc": "Каждая 4-я базовая атака наносит критический чистый урон."
+   },
+   {
+    "type": "skill1",
+    "name": "Очередь выстрелов",
+    "desc": "Быстрый шквал снарядов с дополнительным уроном от макс. HP цели."
+   },
+   {
+    "type": "skill2",
+    "name": "Тактический откат",
+    "desc": "Рывок назад со снятием замедления и ускорением передвижения."
+   },
+   {
+    "type": "ult",
+    "name": "Смертельный калибр",
+    "desc": "Дальнобойный снайперский выстрел через всю карту по раненым целям."
+   }
+  ],
+  "art": "/assets/hero-portraits/79.webp",
+  "artTitle": "Death Chanter"
+ },
+ {
+  "id": 131,
+  "name": "Ланселот",
+  "en": "Lancelot",
+  "img": "/assets/hero-thumbs/47.webp",
+  "tier": "D",
+  "wr": 42.7,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/47.webp",
+  "artTitle": "Blade of Roses"
+ },
+ {
+  "id": 132,
+  "name": "Фанни",
+  "en": "Fanny",
+  "img": "/assets/hero-thumbs/17.webp",
+  "tier": "D",
+  "wr": 41.7,
+  "ban": null,
+  "lane": "jungle",
+  "laneRu": "Лес",
+  "role": "Assassin / Fighter",
+  "roleRu": "Убийца / Лес",
+  "title": "Убийца / Лес · Лес",
+  "stats": {
+   "earlyPower": 9,
+   "latePower": 8,
+   "difficulty": 8,
+   "durability": 5,
+   "offense": 9
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Охотничий инстинкт",
+    "desc": "Увеличивает урон по лесным крипам и даёт вампиризм при добивании."
+   },
+   {
+    "type": "skill1",
+    "name": "Смертельный рывок",
+    "desc": "Мгновенный рывок сквозь врагов с нанесением взрывного физического урона."
+   },
+   {
+    "type": "skill2",
+    "name": "Клинки тени",
+    "desc": "Серия круговых ударов, замедляющих цель и накладывающих кровотечение."
+   },
+   {
+    "type": "ult",
+    "name": "Удар бури",
+    "desc": "Взрывное устранение ключевой цели с кратковременной неуязвимостью."
+   }
+  ],
+  "art": "/assets/hero-portraits/17.webp",
+  "artTitle": "Blade Dancer"
+ },
+ {
+  "id": 133,
+  "name": "Франко",
+  "en": "Franco",
+  "img": "/assets/hero-thumbs/10.webp",
+  "tier": "D",
+  "wr": 41.3,
+  "ban": null,
+  "lane": "roam",
+  "laneRu": "Роум",
+  "role": "Tank / Support",
+  "roleRu": "Танк / Поддержка",
+  "title": "Танк / Поддержка · Роум",
+  "stats": {
+   "earlyPower": 8,
+   "latePower": 6,
+   "difficulty": 5,
+   "durability": 10,
+   "offense": 4
+  },
+  "skills": [
+   {
+    "type": "passive",
+    "name": "Оберег защитника",
+    "desc": "Дарует союзникам рядом постоянный бонус к защите и ауру лечения."
+   },
+   {
+    "type": "skill1",
+    "name": "Цепи контроля",
+    "desc": "Бросок хука или цепи, притягивающий врага и сбивающий касты."
+   },
+   {
+    "type": "skill2",
+    "name": "Щит надежды",
+    "desc": "Накладывает на команду массивный щит и ускоряет скорость бега на 40%."
+   },
+   {
+    "type": "ult",
+    "name": "Командный тотем",
+    "desc": "Глобальная инициация с подбрасыванием всей вражеской команды."
+   }
+  ],
+  "art": "/assets/hero-portraits/10.webp",
+  "artTitle": "Frozen Warrior"
+ }
+]
